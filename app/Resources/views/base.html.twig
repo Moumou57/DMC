@@ -11,8 +11,9 @@
     </head>
     <body>
         {% block Header %}
+    <div id="content">
         <h1 id="titre">Devis Multi-Société</h1>
-        <img src="imgSociété" alt="imgSociété" /> {# Société choisie #}
+        <img src="" alt="imgSociété" /> {# Société choisie #}
         {% endblock %}
         {% block Application %}
         <div id="application">
@@ -23,8 +24,9 @@
             <div><span> </span></div>
             <div><span></span></div>
         </div>
+    </div>
         {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}<script type="text/javascript" src"http://code.jquery.com/jquery-2.1.4.min.js"/>{% endblock %}
+        {% block javascripts %}<script type="text/javascript" src"http://code.jquery.com/jquery-2.1.4.min.js"></script>{% endblock %}
     </body>
 </html>

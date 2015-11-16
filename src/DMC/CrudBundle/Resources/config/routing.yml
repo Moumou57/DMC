@@ -1,8 +1,8 @@
 dmc_crud_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DMCCrudBundle:Default:index }
+    path:     /
+    defaults: { _controller: DMCCrudBundle:Ressources:index }
 
 
-hello_the_world:
-    path:     /hello-world
-    defaults: { _controller: DMCCrudBundle:Advert:index }
+dmc_crud_ressources:
+    path:     /ressources
+    defaults: { _controller: DMCCrudBundle:Ressources:view }

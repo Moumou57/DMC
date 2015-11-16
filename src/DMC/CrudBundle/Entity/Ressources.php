@@ -56,6 +56,35 @@ class Ressources
      */
     private $estcompose = '0';
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // Designation
+    public function setDesignation($id)
+    {
+        $this->id = $id;
+    }
+    public function getDesignation()
+    {
+        return $this->id;
+    }
+
+    // Famille
+    public function setFamille($id)
+    {
+        $this->id = $id;
+    }
+    public function getFamille()
+    {
+        return $this->id;
+    }
 }
 
