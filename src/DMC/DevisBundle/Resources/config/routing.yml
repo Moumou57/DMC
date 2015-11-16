@@ -1,3 +1,7 @@
 dmc_devis_homepage:
+    path:     /
+    defaults: { _controller: DMCDevisBundle:Default:index }
+
+dmc_devis_homepage:
     path:     /home
     defaults: { _controller: DMCDevisBundle:Default:index }

@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Devis Multi-Société{% endblock %}</title>
         {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/base.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -11,7 +12,7 @@
     <body>
         {% block Header %}
         <h1 id="titre">Devis Multi-Société</h1>
-        <img src="imgSociété"> {# Société choisie #}
+        <img src="imgSociété" alt="imgSociété" /> {# Société choisie #}
         {% endblock %}
         {% block Application %}
         <div id="application">
@@ -24,6 +25,6 @@
         </div>
         {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}<script type="text/javascript" src"http://code.jquery.com/jquery-2.1.4.min.js"/>{% endblock %}
     </body>
 </html>
