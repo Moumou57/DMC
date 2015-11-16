@@ -2,15 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Devis Multi-Société{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/Style.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/base.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block Header %}
+        <h1 id="titre">Devis Multi-Société</h1>
+        <img src="imgSociété"> {# Société choisie #}
+        {% endblock %}
+        {% block Application %}
+        <div id="application">
+            <div><span>Facturation</span></div>
+            <div><span>Devis</span></div>
+            <div><span>Historique Devis</span></div>
+            <div><span>Gestion DMC</span></div>
+            <div><span> </span></div>
+            <div><span></span></div>
+        </div>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-        <p>COCOCOCOCOCCOCOCOCOCOCCOCOCOCOCOCOCCOCOC</p>
     </body>
 </html>

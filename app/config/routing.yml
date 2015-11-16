@@ -1,3 +1,8 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+dmc_devis:
+    resource: "@DMCDevisBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dmc_crud:
+    resource: "@DMCCrudBundle/Resources/config/routing.yml"
+    prefix:   /Crud
+#	type:	annotation

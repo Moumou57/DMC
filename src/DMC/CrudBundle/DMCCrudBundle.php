@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace DMC\CrudBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class DMCCrudBundle extends Bundle
 {
 }
