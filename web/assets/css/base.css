@@ -11,4 +11,55 @@ body{
 	text-align:center;
 }
 
+#application {
+	position: absolute;
+	top: 40%;
+	padding-left: 30%;
+}
 
+#application div {
+	display: inline;
+	margin-right: 75px;
+}
+
+/*** Menu home ***/
+#facturation {
+	position: absolute;
+	margin-left: -9%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#devis {
+	position: absolute;
+	margin-left: -6%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#histodevis {
+	position: absolute;
+	margin-left: -10%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#gestion {
+	position: absolute;
+	margin-left: -9%;
+	top: 150px;
+	font-size: 25px;
+}
+
+/** NAVBAR **/
+.navbar {
+	background-color: #FF8C00;
+}
+
+.navbar-brand , .navbar-nav>li>a {
+	color: white !important;
+}
+
+.navbar-nav>.active>a {
+	background-color: rgb(45,43,43) !important;
+}
