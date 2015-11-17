@@ -68,23 +68,53 @@ class Ressources
     }
 
     // Designation
-    public function setDesignation($id)
+    public function setDesignation($designation)
     {
-        $this->id = $id;
+        $this->designation = $designation;
     }
     public function getDesignation()
     {
-        return $this->id;
+        return $this->designation;
     }
 
     // Famille
-    public function setFamille($id)
+    public function setFamille($famille)
     {
-        $this->id = $id;
+        $this->famille = $famille;
     }
     public function getFamille()
     {
-        return $this->id;
+        return $this->famille;
+    }
+
+    // Unite
+    public function setUnite($unite)
+    {
+        $this->unite = $unite;
+    }
+    public function getUnite()
+    {
+        return $this->unite;
+    }
+
+    // Prix
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    // EstComposé
+    public function setEstCompose($estcompose)
+    {
+        $this->estcompose = $estcompose;
+    }
+    public function getEstCompose()
+    {
+        return $this->estcompose;
     }
 }
 
