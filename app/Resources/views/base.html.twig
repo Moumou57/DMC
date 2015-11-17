@@ -10,24 +10,44 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    {% block Header %}
         <div id="content">
-            <h1 id="titre">Devis Multi-Société</h1>
-            <img src="" alt="imgSociété" /> {# Société choisie #}
-            {% endblock %}
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Devis Multi-Société</a>
+                </div>
+                <div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li> 
+                      </ul>
+                    </li>
+                    <li><a href="#">Page 2</a></li> 
+                    <li><a href="#">Page 3</a></li> 
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        {% block Header %}
+            <h1 id="titre"></h1>
+        {% endblock %}
             {% block Application %}
             <div id="application">
-                <div><span>Facturation</span></div>
-                <div><span>Devis</span></div>
-                <div><span>Historique Devis</span></div>
-                <div><span>Gestion DMC</span></div>
-                <div><span> </span></div>
-                <div><span></span></div>
+                <div><img src="{{ asset('assets/images/facturation.png') }}" alt="facturation" /><span id="facturation">Facturation</span></div>
+                <div><img src="{{ asset('assets/images/devis.png') }}" alt="devis" /><span id="devis">Devis</span></div>
+                <div><img src="{{ asset('assets/images/historique_devis.png') }}" alt="histodevis" /><span id="histodevis">Historique Devis</span></div>
+                <div><img src="{{ asset('assets/images/gestion.png') }}" alt="gestion" /><span id="gestion">Gestion DMC</span></div>
             </div>
+            {% endblock %}
         </div>
-    </div>
+        {% block javascripts %}
+            <script type="text/javascript" src"http://code.jquery.com/jquery-2.1.4.min.js"></script>
         {% endblock %}
-        {% block body %}{% endblock %}
-        {% block javascripts %}<script type="text/javascript" src"http://code.jquery.com/jquery-2.1.4.min.js"></script>{% endblock %}
     </body>
 </html>
