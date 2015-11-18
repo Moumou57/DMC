@@ -77,6 +77,95 @@ class Clients
      */
     private $email;
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // Nom
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    // Adresse
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    // Ville
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    // CodePostal
+    public function setCodePostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+    }
+    public function getCodePostal()
+    {
+        return $this->codepostal;
+    }
+
+    // Pays
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+    }
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    // BoitePostale
+    public function setBoitePostale($boitepostale)
+    {
+        $this->boitepostale = $boitepostale;
+    }
+    public function getBoitePostale()
+    {
+        return $this->boitepostale;
+    }
+
+    // Telephone
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+    }
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    // Email
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }
 

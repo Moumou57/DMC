@@ -77,6 +77,95 @@ class EnteteDevis
      */
     private $lieuimpression;
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // NumeroClient
+    public function setNumeroClient($numeroclient)
+    {
+        $this->numeroclient = $numeroclient;
+    }
+    public function getNumeroClient()
+    {
+        return $this->numeroclient;
+    }
+
+    // NomClient
+    public function setNomClient($nomclient)
+    {
+        $this->nomclient = $nomclient;
+    }
+    public function getNomClient()
+    {
+        return $this->nomclient;
+    }
+
+    // AdresseClient
+    public function setAdresseClient($adresseclient)
+    {
+        $this->adresseclient = $adresseclient;
+    }
+    public function getAdresseClient()
+    {
+        return $this->adresseclient;
+    }
+
+    // IntituleDevis
+    public function setIntituleDevis($intituledevis)
+    {
+        $this->intituledevis = $intituledevis;
+    }
+    public function getIntituleDevis()
+    {
+        return $this->intituledevis;
+    }
+
+    // DateCreation
+    public function setDateCreation($datecreation)
+    {
+        $this->datecreation = $datecreation;
+    }
+    public function getDateCreation()
+    {
+        return $this->datecreation;
+    }
+
+    // Date
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    // DateImpression
+    public function setDateImpression($dateimpression)
+    {
+        $this->dateimpression = $dateimpression;
+    }
+    public function getDateImpression()
+    {
+        return $this->dateimpression;
+    }
+
+    // LieuImpression
+    public function setLieuImpression($lieuimpression)
+    {
+        $this->lieuimpression = $lieuimpression;
+    }
+    public function getLieuImpression()
+    {
+        return $this->lieuimpression;
+    }
 }
 

@@ -105,6 +105,135 @@ class Societes
      */
     private $email;
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // NomSociete
+    public function setNomSociete($nomsociete)
+    {
+        $this->nomsociete = $nomsociete;
+    }
+    public function getNomSociete()
+    {
+        return $this->nomsociete;
+    }
+
+    // NomLegal
+    public function setNomLegal($nomlegal)
+    {
+        $this->nomlegal = $nomlegal;
+    }
+    public function getNomLegal()
+    {
+        return $this->nomlegal;
+    }
+
+    // CapitalSocial
+    public function setCapitalSocial($capitalsocial)
+    {
+        $this->capitalsocial = $capitalsocial;
+    }
+    public function getCapitalSocial()
+    {
+        return $this->capitalsocial;
+    }
+
+    // IBLC
+    public function setIBLC($iblc)
+    {
+        $this->iblc = $iblc;
+    }
+    public function getIBLC()
+    {
+        return $this->iblc;
+    }
+
+    // TVA
+    public function setTVA($tva)
+    {
+        $this->tva = $tva;
+    }
+    public function getTVA()
+    {
+        return $this->tva;
+    }
+
+    // BCEE
+    public function setBCEE($bcee)
+    {
+        $this->bcee = $bcee;
+    }
+    public function getBCEE()
+    {
+        return $this->bcee;
+    }
+
+    // Adresse
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    // BoitePostale
+    public function setBoitePostale($boitepostale)
+    {
+        $this->boitepostale = $boitepostale;
+    }
+    public function getBoitePostale()
+    {
+        return $this->boitepostale;
+    }
+
+    // Telephone
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+    }
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    // Fax
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+    }
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    // SiteWeb
+    public function setSiteWeb($siteweb)
+    {
+        $this->siteweb = $siteweb;
+    }
+    public function getSiteWeb()
+    {
+        return $this->siteweb;
+    }
+
+    // Email
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }
 

@@ -35,6 +35,35 @@ class ClassificationsRessources
      */
     private $idFamille;
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // Designation
+    public function setDesignation($designation)
+    {
+        $this->designation = $designation;
+    }
+    public function getDesignation()
+    {
+        return $this->designation;
+    }
+
+    // IdFamille
+    public function setIdFamille($idFamille)
+    {
+        $this->idFamille = $idFamille;
+    }
+    public function getIdFamille()
+    {
+        return $this->idFamille;
+    }
 }
 
