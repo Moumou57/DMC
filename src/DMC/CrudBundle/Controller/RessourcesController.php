@@ -34,4 +34,6 @@ class RessourcesController extends Controller
 
         return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ress' => $ress->getId()));
     }
+
+
 }
