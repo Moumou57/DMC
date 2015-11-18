@@ -98,6 +98,125 @@ class LignesDevis
      */
     private $italique = '0';
 
+    //------------------------------------ Getter / Setter
+    // ID
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    // Position
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    // PositionMaitre
+    public function setPositionMaitre($positionmaitre)
+    {
+        $this->positionmaitre = $positionmaitre;
+    }
+    public function getPositionMaitre()
+    {
+        return $this->positionmaitre;
+    }
+
+    // Article
+    public function setArticle($article)
+    {
+        $this->article = $article;
+    }
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    // Libelle
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+    }
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    // Unite
+    public function setUnite($unite)
+    {
+        $this->unite = $unite;
+    }
+    public function getUnite()
+    {
+        return $this->unite;
+    }
+
+    // Quantite
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+    }
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    // PU_HT
+    public function setPU_HT($puHt)
+    {
+        $this->puHt = $puHt;
+    }
+    public function getPU_HT()
+    {
+        return $this->puHt;
+    }
+
+    // Total_HT
+    public function setTotal_HT($totalHt)
+    {
+        $this->totalHt = $totalHt;
+    }
+    public function getTotal_HT()
+    {
+        return $this->totalHt;
+    }
+
+    // Souligne
+    public function setSouligne($souligne)
+    {
+        $this->souligne = $souligne;
+    }
+    public function getSouligne()
+    {
+        return $this->souligne;
+    }
+
+    // Gras
+    public function setGras($gras)
+    {
+        $this->gras = $gras;
+    }
+    public function getGras()
+    {
+        return $this->gras;
+    }
+
+    // Italique
+    public function setItalique($italique)
+    {
+        $this->italique = $italique;
+    }
+    public function getItalique()
+    {
+        return $this->italique;
+    }
 }
 
