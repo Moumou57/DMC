@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-use DMC\CrudBundle\Entity\Ressources;
+use DMC\CrudBundle\Entity\Clients;
 
 
 class ClientsController extends Controller
@@ -16,30 +16,62 @@ class ClientsController extends Controller
         return new Response("Hello World - index!");
     }
 
-    public function viewAction($id)
+    public function viewAction()
     {
     	 // Ici, on récupérera le client correspondant à l'id $id
-	    return $this->render('DMCCrudBundle:Clients:view.html.twig', array(
-	      'id' => $id
-	    ));
+	    return $this->render('DMCCrudBundle:Clients:view.html.twig');
     }
 
     public function insertAction(Request $request)
 	{
 	// La gestion d'un formulaire est particulière, mais l'idée est la suivante :
 
-		// Si la requête est en POST, c'est que le visiteur a soumis le formulaire
-		if ($request->isMethod('POST')) {
-		  // Ici, on s'occupera de la création et de la gestion du formulaire
+		 // On crée un objet Client
+	    $client = new Clients();
 
-		  $request->getSession()->getFlashBag()->add('notice', 'Client bien enregistré.');
+	    // On crée le FormBuilder grâce au service form factory
+	    $formBuilder = $this->get('form.factory')->createBuilder('form', $client);
 
-		  // Puis on redirige vers la page de visualisation de cettte annonce
-		  return $this->redirect($this->generateUrl('dmc_crud_clients_insert', array('id' => 5)));
-		}
+	    // On ajoute les champs de l'entité que l'on veut à notre formulaire
+	    $formBuilder
+	    	->add('nom', 'text')
+	    	->add('adresse', 'text')
+	    	->add('ville', 'text')
+	    	->add('codepostal', 'text')
+	    	->add('pays', 'text')
+	    	->add('boitepostal', 'text')
+	    	->add('telephone', 'text')
+	    	->add('email', 'email')
+	    	->add('save', 'submit')
+	    	->getForm();
+
+	    // À partir du formBuilder, on génère le formulaire
+	    $form = $formBuilder->getForm();
+
+		// On fait le lien Requête <-> Formulaire
+	    // À partir de maintenant, la variable $client contient les valeurs entrées dans le formulaire par le visiteur
+	    $form->handleRequest($request);
+
+	    // On vérifie que les valeurs entrées sont correctes
+	    // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+	    if ($form->isValid()) {
+	      // On l'enregistre notre objet $client dans la base de données, par exemple
+	      $em = $this->getDoctrine()->getManager();
+	      $em->persist($client);
+	      $em->flush();
+
+	      $request->getSession()->getFlashBag()->add('notice', 'Client bien enregistré.');
+
+	      // On redirige vers la page de visualisation de l'annonce nouvellement créée
+	      return $this->redirect($this->generateUrl('dmc_crud_clients_view', array('id' => $client->getId())));
+	    }
 
 		// Si on n'est pas en POST, alors on affiche le formulaire
-		return $this->render('DMCCrudBundle:Clients:insert.html.twig');
+		// On passe la méthode createView() du formulaire à la vue
+	    // afin qu'elle puisse afficher le formulaire toute seule
+		return $this->render('DMCCrudBundle:Clients:insert.html.twig', array(
+	      'form' => $form->createView(),
+	    ));
 	}
 
 	public function editAction($id, Request $request)
