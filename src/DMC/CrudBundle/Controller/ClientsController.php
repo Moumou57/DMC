@@ -18,8 +18,16 @@ class ClientsController extends Controller
 
     public function viewAction()
     {
-    	 // Ici, on récupérera le client correspondant à l'id $id
-	    return $this->render('DMCCrudBundle:Clients:view.html.twig');
+    	// On récupère la liste des clients
+		$repository = $this
+	  		->getDoctrine()
+		  	->getManager()
+		  	->getRepository('DMCCrudBundle:Clients');
+			
+
+		$listClients = $repository->findAll();
+
+	    return $this->render('DMCCrudBundle:Clients:view.html.twig', array('clients' => $listClients));
     }
 
     public function insertAction(Request $request)

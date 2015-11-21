@@ -11,4 +11,10 @@
 			{{ flashMessage }}
 		</div>
 	{% endfor %}
+
+	<ul>
+	  {% for client in clients %}
+	    <li>{{ client.nom }}</li>
+	  {% endfor %}
+	</ul>
 {% endblock %}
