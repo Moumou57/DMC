@@ -1,7 +1,7 @@
 <?php
-// src/OC/PlatformBundle/Entity/AdvertRepository.php
+// src/DMC/CrudBundle/Entity/ClientsRepository.php
 
-namespace OC\PlatformBundle\Entity;
+namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
