@@ -5,9 +5,10 @@ namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class SocieteRepository extends EntityRepository
+class SocietesRepository extends EntityRepository
 {
-  public function FindAll()
+  
+  public function findAll()
   {
     // Méthode 1 : en passant par l'EntityManager
     $queryBuilder = $this->_em->createQueryBuilder()
