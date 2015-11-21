@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block Header %}
+	<h1>Clients</h1>
+{% endblock %}
+
+{% block Application %}
+	{# Messages notif #}
+	{%  for flashMessage in app.session.flashbag.get('notice')  %}
+		<div class="success alert-success" role="alert">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+{% endblock %}
