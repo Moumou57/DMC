@@ -170,21 +170,21 @@ class LignesDevis
     }
 
     // PU_HT
-    public function setPU_HT($puHt)
+    public function setPuHt($puHt)
     {
         $this->puHt = $puHt;
     }
-    public function getPU_HT()
+    public function getPuHt()
     {
         return $this->puHt;
     }
 
     // Total_HT
-    public function setTotal_HT($totalHt)
+    public function setTotalHt($totalHt)
     {
         $this->totalHt = $totalHt;
     }
-    public function getTotal_HT()
+    public function getTotalHt()
     {
         return $this->totalHt;
     }

@@ -139,13 +139,13 @@ class Clients
     }
 
     // BoitePostale
-    public function setBoitePostale($boitepostale)
+    public function setBoitePostal($boitepostal)
     {
-        $this->boitepostale = $boitepostale;
+        $this->boitepostal = $boitepostal;
     }
-    public function getBoitePostale()
+    public function getBoitePostal()
     {
-        return $this->boitepostale;
+        return $this->boitepostal;
     }
 
     // Telephone

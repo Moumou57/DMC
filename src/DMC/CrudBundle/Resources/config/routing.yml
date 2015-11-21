@@ -1,12 +1,26 @@
 dmc_crud_homepage:
     path:     /
-    defaults: { _controller: DMCCrudBundle:Ressources:index }
+    defaults: { _controller: DMCCrudBundle:Default:index }
 
+###########################
 # RESSOURCES
-dmc_crud_ressources:
+dmc_crud_ressources_view:
     path:     /ressources
     defaults: { _controller: DMCCrudBundle:Ressources:view }
 
+dmc_crud_ressources_insert:
+    path:     /ressources/insert
+    defaults: { _controller: DMCCrudBundle:Ressources:view }
+
+dmc_crud_ressources_delete:
+    path:     /ressources/delete
+    defaults: { _controller: DMCCrudBundle:Ressources:view }
+
+dmc_crud_ressources_edit:
+    path:     /ressources/edit
+    defaults: { _controller: DMCCrudBundle:Ressources:view }
+
+###########################
 # CLIENTS
 dmc_crud_clients_view:
     path:     /clients/view

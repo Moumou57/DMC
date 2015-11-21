@@ -39,10 +39,26 @@
         {% endblock %}
             {% block Application %}
             <div id="application">
-                <div><img src="{{ asset('assets/images/facturation.png') }}" alt="facturation" /><span id="facturation">Facturation</span></div>
-                <div><img src="{{ asset('assets/images/devis.png') }}" alt="devis" /><span id="devis">Devis</span></div>
-                <div><img src="{{ asset('assets/images/historique_devis.png') }}" alt="histodevis" /><span id="histodevis">Historique Devis</span></div>
-                <div><img src="{{ asset('assets/images/gestion.png') }}" alt="gestion" /><span id="gestion">Gestion DMC</span></div>
+                <div>
+                    <a>
+                    <img src="{{ asset('assets/images/facturation.png') }}" alt="facturation" /><span id="facturation">Facturation</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ path ('dmc_devis_homepage') }}">
+                    <img src="{{ asset('assets/images/devis.png') }}" alt="devis" /><span id="devis">Devis</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ path ('dmc_devis_homepage') }}">
+                    <img src="{{ asset('assets/images/historique_devis.png') }}" alt="histodevis" /><span id="histodevis">Historique Devis</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ path ('dmc_crud_homepage') }}">
+                    <img src="{{ asset('assets/images/gestion.png') }}" alt="gestion"/><span id="gestion">Gestion DMC</span>
+                    </a>
+                </div>
             </div>
             {% endblock %}
         </div>
