@@ -1,3 +1,11 @@
 dmc_devis_homepage:
     path:     /
     defaults: { _controller: DMCDevisBundle:Default:index }
+
+dmc_devis_edit:
+    path:     /devis
+    defaults: { _controller: DMCDevisBundle:Default:edit }
+
+dmc_historique_devis:
+    path:     /devis/historique
+    defaults: { _controller: DMCDevisBundle:Default:historique }

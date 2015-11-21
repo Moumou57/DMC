@@ -10,4 +10,14 @@ class DefaultController extends Controller
     {
         return $this->render('DMCDevisBundle:Default:index.html.twig');
     }
+
+    public function editAction()
+    {
+        return $this->render('DMCDevisBundle:Default:index.html.twig');
+    }
+
+    public function historiqueAction()
+    {
+        return $this->render('DMCDevisBundle:Default:index.html.twig');
+    }
 }
