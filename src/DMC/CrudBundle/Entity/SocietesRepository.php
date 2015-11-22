@@ -1,5 +1,5 @@
 <?php
-// src/DMC/CrudBundle/Entity/ClientsRepository.php
+// src/DMC/CrudBundle/Entity/SocietesRepository.php
 
 namespace DMC\CrudBundle\Entity;
 
@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityRepository;
 
 class SocietesRepository extends EntityRepository
 {
-  
+
   public function findAll()
   {
     // Méthode 1 : en passant par l'EntityManager

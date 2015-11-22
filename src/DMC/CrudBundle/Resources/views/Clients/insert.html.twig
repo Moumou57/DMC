@@ -27,7 +27,7 @@
 	    {# Idem pour un autre champ. #}
 	    <div class="form-group">
 	      {{ form_label(form.adresse, "Adresse : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.nom) }}
+	      {{ form_errors(form.adresse) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -35,7 +35,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.ville, "Ville : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.adresse) }}
+	      {{ form_errors(form.ville) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -43,7 +43,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.codepostal, "Code postal : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.ville) }}
+	      {{ form_errors(form.codepostal) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.codepostal, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -51,7 +51,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.pays, "Pays : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.codepostal) }}
+	      {{ form_errors(form.pays) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -59,7 +59,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.boitepostal, "Boite postale : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.pays) }}
+	      {{ form_errors(form.boitepostal) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.boitepostal, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -67,7 +67,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.telephone, "Téléphone : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.boitepostal) }}
+	      {{ form_errors(form.telephone) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
 	      </div>
@@ -75,7 +75,7 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.email, "E-mail : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.telephone) }}
+	      {{ form_errors(form.email) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
 	      </div>
