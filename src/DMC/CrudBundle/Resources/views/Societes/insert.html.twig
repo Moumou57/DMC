@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block Header %}
+	<h1>Ajouter une société</h1>
+{% endblock %}
+
+{% block Application %}
+	<div id="formulaire">
+	    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+	    {# Les erreurs générales du formulaire. #}
+	    {{ form_errors(form) }}
+
+	    <div class="form-group">
+	      {# Génération du label. #}
+	      {{ form_label(form.nomsociete, "Nom : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+	      {# Affichage des erreurs pour ce champ précis. #}
+	      {{ form_errors(form.nomsociete) }}
+
+	      <div class="col-sm-4">
+	        {# Génération de l'input. #}
+	        {{ form_widget(form.nomsociete, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    {# Idem pour un autre champ. #}
+	    <div class="form-group">
+	      {{ form_label(form.nomlegal, "Nom légal : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.nomlegal) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.nomlegal, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.capitalsocial, "Capital social : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.capitalsocial) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.capitalsocial, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.iblc, "IBLC : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.iblc) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.iblc, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.tva, "TVA : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.tva) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.tva, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.bcee, "BCEE : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.bcee) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.bcee, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.adresse, "Adresse : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.adresse) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.boitepostale, "Boite postale : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.boitepostale) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.boitepostale, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.telephone, "Téléphone : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.telephone) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.fax, "Fax : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.fax) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.fax, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.siteweb, "Site web : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.siteweb) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.siteweb, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.email, "E-mail : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.telephone) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	  {# Génération du label + error + widget pour un champ #}
+	  {#{{ form_row(form.codepostal) }} #}
+
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	  {# Génération automatique des champs pas encore écrits.
+	     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+	     et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+	  
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+    </div>
+{% endblock %}

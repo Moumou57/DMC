@@ -37,3 +37,21 @@ dmc_crud_clients_delete:
 dmc_crud_clients_edit:
     path:     /clients/edit
     defaults: { _controller: DMCCrudBundle:Clients:edit }
+
+###########################
+# SOCIETES
+dmc_crud_societes_view:
+    path:     /societes/view
+    defaults: { _controller: DMCCrudBundle:Societes:view }
+
+dmc_crud_societes_insert:
+    path:     /societes/insert
+    defaults: { _controller: DMCCrudBundle:Societes:insert }
+
+dmc_crud_societes_delete:
+    path:     /societes/delete
+    defaults: { _controller: DMCCrudBundle:Societes:delete }
+
+dmc_crud_societes_edit:
+    path:     /societes/edit
+    defaults: { _controller: DMCCrudBundle:Societes:edit }

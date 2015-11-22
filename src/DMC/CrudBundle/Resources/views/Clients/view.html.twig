@@ -12,9 +12,35 @@
 		</div>
 	{% endfor %}
 
-	<ul>
-	  {% for client in clients %}
-	    <li>{{ client.nom }}</li>
-	  {% endfor %}
-	</ul>
+	<div id="backtable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Adresse</th>
+					<th>Ville</th>
+					<th>Code postal</th>
+					<th>Pays</th>
+					<th>Boite postale</th>
+					<th>Téléphone</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+			  	{% for client in clients %}
+			  	<input type="hidden" id="client" value={{ client.id }} />
+			    <tr class="ligne">
+				    <td>{{ client.nom }}</td>
+				    <td>{{ client.adresse }}</td>
+				    <td>{{ client.ville }}</td>
+				    <td>{{ client.codepostal }}</td>
+				    <td>{{ client.pays }}</td>
+					<td>{{ client.boitepostal }}</td>
+				    <td>{{ client.telephone }}</td>
+				    <td>{{ client.email }}</td>
+				</tr>
+		 		{% endfor %}
+		 	</tbody>
+		</table>
+	</div>
 {% endblock %}

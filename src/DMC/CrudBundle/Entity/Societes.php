@@ -38,28 +38,28 @@ class Societes
     /**
      * @var string
      *
-     * @ORM\Column(name="capitalsocial", type="string", length=5, nullable=false)
+     * @ORM\Column(name="capitalsocial", type="string", length=50, nullable=false)
      */
     private $capitalsocial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="iblc", type="string", length=5, nullable=false)
+     * @ORM\Column(name="iblc", type="string", length=50, nullable=false)
      */
     private $iblc;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="tva", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="tva", type="string",length=50, nullable=false)
      */
     private $tva;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bcee", type="string", length=5, nullable=false)
+     * @ORM\Column(name="bcee", type="string", length=50, nullable=false)
      */
     private $bcee;
 

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block Header %}
+	<h1>Sociétés</h1>
+{% endblock %}
+
+{% block Application %}
+	{# Messages notif #}
+	{%  for flashMessage in app.session.flashbag.get('notice')  %}
+		<div class="success alert-success" role="alert">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+
+	<div id="backtable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Nom légal</th>
+					<th>Capital social</th>
+					<th>IBLC</th>
+					<th>TVA</th>
+					<th>BCEE</th>
+					<th>Adresse</th>
+					<th>Boite postale</th>
+					<th>Téléphone</th>
+					<th>Fax</th>
+					<th>Site web</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+			  	{% for societe in societes %}
+			  	<input type="hidden" id="societe" value={{ societe.id }} />
+			    <tr class="ligne">
+				    <td>{{ societe.nomsociete }}</td>
+				    <td>{{ societe.nomlegal }}</td>
+				    <td>{{ societe.capitalsocial }}</td>
+				    <td>{{ societe.iblc }}</td>
+				    <td>{{ societe.tva }}</td>
+				    <td>{{ societe.bcee }}</td>
+				    <td>{{ societe.adresse }}</td>
+					<td>{{ societe.boitepostale }}</td>
+				    <td>{{ societe.telephone }}</td>
+				    <td>{{ societe.fax }}</td>
+				    <td>{{ societe.siteweb }}</td>
+				    <td>{{ societe.email }}</td>
+				</tr>
+		 		{% endfor %}
+		 	</tbody>
+		</table>
+	</div>
+{% endblock %}
