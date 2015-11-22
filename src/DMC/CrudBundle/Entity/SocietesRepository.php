@@ -1,5 +1,5 @@
 <?php
-// src/DMC/CrudBundle/Entity/ClientsRepository.php
+// src/DMC/CrudBundle/Entity/SocietesRepository.php
 
 namespace DMC\CrudBundle\Entity;
 
