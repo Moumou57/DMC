@@ -18,16 +18,8 @@
                 </div>
                 <div>
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path ('dmc_devis_homepage') }}">Home</a></li>
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"> Sociétés <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"> EG LUX</a></li>
-                        <li><a href="#">RENOVER</a></li>
-                        <li><a href="#">Société 1-3</a></li> 
-                      </ul>
-                    </li>
                     {% block Navigation %}
+                    <li class="active"><a href="{{ path ('dmc_devis_homepage') }}">Home</a></li>
                     {% endblock %}
                   </ul>
                 </div>
@@ -40,22 +32,26 @@
             <div id="application">
                 <div>
                     <a>
-                    <img src="{{ asset('assets/images/facturation.png') }}" alt="facturation" /><span id="facturation">Facturation</span>
+                        <img src="{{ asset('assets/images/facturation.png') }}" alt="facturation" />
+                        <span id="facturation">Facturation</span>
                     </a>
                 </div>
                 <div>
                     <a href="{{ path ('dmc_devis_homepage') }}">
-                    <img src="{{ asset('assets/images/devis.png') }}" alt="devis" /><span id="devis">Devis</span>
+                        <img src="{{ asset('assets/images/devis.png') }}" alt="devis" />
+                        <span id="devis">Devis</span>
                     </a>
                 </div>
                 <div>
                     <a href="{{ path ('dmc_historique_devis') }}">
-                    <img src="{{ asset('assets/images/historique_devis.png') }}" alt="histodevis" /><span id="histodevis">Historique Devis</span>
+                        <img src="{{ asset('assets/images/historique_devis.png') }}" alt="histodevis" />
+                        <span id="histodevis">Historique Devis</span>
                     </a>
                 </div>
                 <div>
                     <a href="{{ path ('dmc_crud_homepage') }}">
-                    <img src="{{ asset('assets/images/gestion.png') }}" alt="gestion"/><span id="gestion">Gestion DMC</span>
+                        <img src="{{ asset('assets/images/gestion.png') }}" alt="gestion"/>
+                        <span id="gestion">Gestion DMC</span>
                     </a>
                 </div>
             </div>

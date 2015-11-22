@@ -14,7 +14,7 @@ body{
 #application {
 	position: absolute;
 	top: 40%;
-	padding-left: 30%;
+	padding-left: 26%;
 }
 
 #application div {
@@ -32,21 +32,50 @@ body{
 
 #devis {
 	position: absolute;
-	margin-left: -6%;
+	margin-left: -7%;
 	top: 150px;
 	font-size: 25px;
 }
 
 #histodevis {
 	position: absolute;
-	margin-left: -10%;
+	margin-left: -11%;
 	top: 150px;
 	font-size: 25px;
 }
 
 #gestion {
 	position: absolute;
-	margin-left: -9%;
+	margin-left: 19%;
+	top: 150px;
+	font-size: 25px;
+}
+
+/*** Menu Gestion DMC ***/
+#classification {
+	position: absolute;
+	margin-left: -12%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#articles {
+	position: absolute;
+	margin-left: -7.5%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#clients {
+	position: absolute;
+	margin-left: -8%;
+	top: 150px;
+	font-size: 25px;
+}
+
+#societes {
+	position: absolute;
+	margin-left: 24.5%;
 	top: 150px;
 	font-size: 25px;
 }
