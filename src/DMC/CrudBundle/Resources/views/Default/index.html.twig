@@ -22,8 +22,45 @@
 			</ul>
 		</li>
 #}
-		<li><a href="#">Page 2</a></li> 
-		<li><a href="#">Page 3</a></li> 
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}">Classification Article<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Afficher</a></li>
+				<li><a href="#">Ajouter</a></li>
+				<li><a href="#">Modifier</a></li> 
+				<li><a href="#">Supprimer</a></li> 
+			</ul>
+		</li> 
+
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Article <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Afficher</a></li>
+				<li><a href="#">Ajouter</a></li>
+				<li><a href="#">Modifier</a></li> 
+				<li><a href="#">Supprimer</a></li> 
+			</ul>
+		</li>
+
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Clients <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ path ('dmc_crud_clients_view') }}">Afficher</a></li>
+				<li><a href="#">Ajouter</a></li>
+				<li><a href="#">Modifier</a></li> 
+				<li><a href="#">Supprimer</a></li> 
+			</ul>
+		</li>
+
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Sociétés <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Afficher</a></li>
+				<li><a href="#">Ajouter</a></li>
+				<li><a href="#">Modifier</a></li> 
+				<li><a href="#">Supprimer</a></li> 
+			</ul>
+		</li> 
 {% endblock %}
 
 {% block Header %}
@@ -47,7 +84,7 @@
 			</a>
 		</div>
 		<div>
-			<a href="{{ path ('dmc_devis_homepage') }}">
+			<a href="{{ path ('dmc_crud_clients_view') }}">
 				<img src="{{ asset('assets/images/clients.png') }}" alt="Clients" />
 				<span id="clients">Clients</span>
 			</a>
