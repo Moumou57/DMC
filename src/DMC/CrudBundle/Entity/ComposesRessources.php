@@ -38,36 +38,76 @@ class ComposesRessources
     private $quantite;
 
 
-    //------------------------------------ Getter / Setter
-    // IdArticle
+
+    /**
+     * Set idArticle
+     *
+     * @param integer $idArticle
+     *
+     * @return ComposesRessources
+     */
     public function setIdArticle($idArticle)
     {
         $this->idArticle = $idArticle;
+
+        return $this;
     }
+
+    /**
+     * Get idArticle
+     *
+     * @return integer
+     */
     public function getIdArticle()
     {
         return $this->idArticle;
     }
 
-    // IdComposant
+    /**
+     * Set idComposant
+     *
+     * @param integer $idComposant
+     *
+     * @return ComposesRessources
+     */
     public function setIdComposant($idComposant)
     {
         $this->idComposant = $idComposant;
+
+        return $this;
     }
+
+    /**
+     * Get idComposant
+     *
+     * @return integer
+     */
     public function getIdComposant()
     {
         return $this->idComposant;
     }
 
-    // Quantite
+    /**
+     * Set quantite
+     *
+     * @param float $quantite
+     *
+     * @return ComposesRessources
+     */
     public function setQuantite($quantite)
     {
         $this->quantite = $quantite;
+
+        return $this;
     }
+
+    /**
+     * Get quantite
+     *
+     * @return float
+     */
     public function getQuantite()
     {
         return $this->quantite;
     }
-
 }
-

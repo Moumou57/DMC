@@ -80,6 +80,20 @@ class Societes
     /**
      * @var string
      *
+     * @ORM\Column(name="codepostal", type="string", length=10, nullable=false)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=50, nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="telephone", type="string", length=20, nullable=false)
      */
     private $telephone;
@@ -105,135 +119,382 @@ class Societes
      */
     private $email;
 
-    //------------------------------------ Getter / Setter
-    // ID
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagepath", type="string", length=1024, nullable=false)
+     */
+    private $imagepath;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    // NomSociete
-    public function setNomSociete($nomsociete)
+    /**
+     * Set nomsociete
+     *
+     * @param string $nomsociete
+     *
+     * @return Societes
+     */
+    public function setNomsociete($nomsociete)
     {
         $this->nomsociete = $nomsociete;
+
+        return $this;
     }
-    public function getNomSociete()
+
+    /**
+     * Get nomsociete
+     *
+     * @return string
+     */
+    public function getNomsociete()
     {
         return $this->nomsociete;
     }
 
-    // NomLegal
-    public function setNomLegal($nomlegal)
+    /**
+     * Set nomlegal
+     *
+     * @param string $nomlegal
+     *
+     * @return Societes
+     */
+    public function setNomlegal($nomlegal)
     {
         $this->nomlegal = $nomlegal;
+
+        return $this;
     }
-    public function getNomLegal()
+
+    /**
+     * Get nomlegal
+     *
+     * @return string
+     */
+    public function getNomlegal()
     {
         return $this->nomlegal;
     }
 
-    // CapitalSocial
-    public function setCapitalSocial($capitalsocial)
+    /**
+     * Set capitalsocial
+     *
+     * @param string $capitalsocial
+     *
+     * @return Societes
+     */
+    public function setCapitalsocial($capitalsocial)
     {
         $this->capitalsocial = $capitalsocial;
+
+        return $this;
     }
-    public function getCapitalSocial()
+
+    /**
+     * Get capitalsocial
+     *
+     * @return string
+     */
+    public function getCapitalsocial()
     {
         return $this->capitalsocial;
     }
 
-    // IBLC
-    public function setIBLC($iblc)
+    /**
+     * Set iblc
+     *
+     * @param string $iblc
+     *
+     * @return Societes
+     */
+    public function setIblc($iblc)
     {
         $this->iblc = $iblc;
+
+        return $this;
     }
-    public function getIBLC()
+
+    /**
+     * Get iblc
+     *
+     * @return string
+     */
+    public function getIblc()
     {
         return $this->iblc;
     }
 
-    // TVA
-    public function setTVA($tva)
+    /**
+     * Set tva
+     *
+     * @param string $tva
+     *
+     * @return Societes
+     */
+    public function setTva($tva)
     {
         $this->tva = $tva;
+
+        return $this;
     }
-    public function getTVA()
+
+    /**
+     * Get tva
+     *
+     * @return string
+     */
+    public function getTva()
     {
         return $this->tva;
     }
 
-    // BCEE
-    public function setBCEE($bcee)
+    /**
+     * Set bcee
+     *
+     * @param string $bcee
+     *
+     * @return Societes
+     */
+    public function setBcee($bcee)
     {
         $this->bcee = $bcee;
+
+        return $this;
     }
-    public function getBCEE()
+
+    /**
+     * Get bcee
+     *
+     * @return string
+     */
+    public function getBcee()
     {
         return $this->bcee;
     }
 
-    // Adresse
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Societes
+     */
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
+
+        return $this;
     }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
     public function getAdresse()
     {
         return $this->adresse;
     }
 
-    // BoitePostale
-    public function setBoitePostale($boitepostale)
+    /**
+     * Set boitepostale
+     *
+     * @param string $boitepostale
+     *
+     * @return Societes
+     */
+    public function setBoitepostale($boitepostale)
     {
         $this->boitepostale = $boitepostale;
+
+        return $this;
     }
-    public function getBoitePostale()
+
+    /**
+     * Get boitepostale
+     *
+     * @return string
+     */
+    public function getBoitepostale()
     {
         return $this->boitepostale;
     }
 
-    // Telephone
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return Societes
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Societes
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Societes
+     */
     public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
+
+        return $this;
     }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
     public function getTelephone()
     {
         return $this->telephone;
     }
 
-    // Fax
+    /**
+     * Set fax
+     *
+     * @param string $fax
+     *
+     * @return Societes
+     */
     public function setFax($fax)
     {
         $this->fax = $fax;
+
+        return $this;
     }
+
+    /**
+     * Get fax
+     *
+     * @return string
+     */
     public function getFax()
     {
         return $this->fax;
     }
 
-    // SiteWeb
-    public function setSiteWeb($siteweb)
+    /**
+     * Set siteweb
+     *
+     * @param string $siteweb
+     *
+     * @return Societes
+     */
+    public function setSiteweb($siteweb)
     {
         $this->siteweb = $siteweb;
+
+        return $this;
     }
-    public function getSiteWeb()
+
+    /**
+     * Get siteweb
+     *
+     * @return string
+     */
+    public function getSiteweb()
     {
         return $this->siteweb;
     }
 
-    // Email
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Societes
+     */
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
     }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
     }
-}
 
+    /**
+     * Set imagepath
+     *
+     * @param string $imagepath
+     *
+     * @return Societes
+     */
+    public function setImagepath($imagepath)
+    {
+        $this->imagepath = $imagepath;
+
+        return $this;
+    }
+
+    /**
+     * Get imagepath
+     *
+     * @return string
+     */
+    public function getImagepath()
+    {
+        return $this->imagepath;
+    }
+}

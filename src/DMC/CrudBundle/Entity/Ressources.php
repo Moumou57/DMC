@@ -56,65 +56,135 @@ class Ressources
      */
     private $estcompose = false;
 
-    //------------------------------------ Getter / Setter
-    // ID
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    // Designation
+    /**
+     * Set designation
+     *
+     * @param string $designation
+     *
+     * @return Ressources
+     */
     public function setDesignation($designation)
     {
         $this->designation = $designation;
+
+        return $this;
     }
+
+    /**
+     * Get designation
+     *
+     * @return string
+     */
     public function getDesignation()
     {
         return $this->designation;
     }
 
-    // Famille
+    /**
+     * Set famille
+     *
+     * @param string $famille
+     *
+     * @return Ressources
+     */
     public function setFamille($famille)
     {
         $this->famille = $famille;
+
+        return $this;
     }
+
+    /**
+     * Get famille
+     *
+     * @return string
+     */
     public function getFamille()
     {
         return $this->famille;
     }
 
-    // Unite
+    /**
+     * Set unite
+     *
+     * @param string $unite
+     *
+     * @return Ressources
+     */
     public function setUnite($unite)
     {
         $this->unite = $unite;
+
+        return $this;
     }
+
+    /**
+     * Get unite
+     *
+     * @return string
+     */
     public function getUnite()
     {
         return $this->unite;
     }
 
-    // Prix
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     *
+     * @return Ressources
+     */
     public function setPrix($prix)
     {
         $this->prix = $prix;
+
+        return $this;
     }
+
+    /**
+     * Get prix
+     *
+     * @return float
+     */
     public function getPrix()
     {
         return $this->prix;
     }
 
-    // EstComposé
-    public function setEstCompose($estcompose)
+    /**
+     * Set estcompose
+     *
+     * @param boolean $estcompose
+     *
+     * @return Ressources
+     */
+    public function setEstcompose($estcompose)
     {
         $this->estcompose = $estcompose;
+
+        return $this;
     }
-    public function getEstCompose()
+
+    /**
+     * Get estcompose
+     *
+     * @return boolean
+     */
+    public function getEstcompose()
     {
         return $this->estcompose;
     }
 }
-
