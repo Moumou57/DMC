@@ -5,5 +5,70 @@
 {% endblock %}
 
 {% block Application %}
-	<div><span> ID : {{ress}} </span></div>
+	<div id="formulaire">
+	    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+	    {# Les erreurs générales du formulaire. #}
+	    {{ form_errors(form) }}
+
+	    <div class="form-group">
+	      {# Génération du label. #}
+	      {{ form_label(form.designation, "Désignation : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+	      {# Affichage des erreurs pour ce champ précis. #}
+	      {{ form_errors(form.designation) }}
+
+	      <div class="col-sm-4">
+	        {# Génération de l'input. #}
+	        {{ form_widget(form.designation, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    {# Idem pour un autre champ. #}
+	    <div class="form-group">
+	      {{ form_label(form.famille, "Famille : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.famille) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.famille, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.unite, "Unité : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.unite) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.unite, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.prix, "Prix : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.prix) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.estcompose, "Article composé : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.estcompose) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.estcompose, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	  {# Génération du label + error + widget pour un champ #}
+	  {#{{ form_row(form.codepostal) }} #}
+
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	  {# Génération automatique des champs pas encore écrits.
+	     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+	     et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+	  
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+    </div>
 {% endblock %}

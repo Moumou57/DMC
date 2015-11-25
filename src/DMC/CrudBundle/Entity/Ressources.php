@@ -54,7 +54,7 @@ class Ressources
      *
      * @ORM\Column(name="estcompose", type="boolean", nullable=false)
      */
-    private $estcompose = '0';
+    private $estcompose = false;
 
     //------------------------------------ Getter / Setter
     // ID
