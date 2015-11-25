@@ -77,95 +77,207 @@ class EnteteDevis
      */
     private $lieuimpression;
 
-    //------------------------------------ Getter / Setter
-    // ID
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    // NumeroClient
-    public function setNumeroClient($numeroclient)
+    /**
+     * Set numeroclient
+     *
+     * @param integer $numeroclient
+     *
+     * @return EnteteDevis
+     */
+    public function setNumeroclient($numeroclient)
     {
         $this->numeroclient = $numeroclient;
+
+        return $this;
     }
-    public function getNumeroClient()
+
+    /**
+     * Get numeroclient
+     *
+     * @return integer
+     */
+    public function getNumeroclient()
     {
         return $this->numeroclient;
     }
 
-    // NomClient
-    public function setNomClient($nomclient)
+    /**
+     * Set nomclient
+     *
+     * @param string $nomclient
+     *
+     * @return EnteteDevis
+     */
+    public function setNomclient($nomclient)
     {
         $this->nomclient = $nomclient;
+
+        return $this;
     }
-    public function getNomClient()
+
+    /**
+     * Get nomclient
+     *
+     * @return string
+     */
+    public function getNomclient()
     {
         return $this->nomclient;
     }
 
-    // AdresseClient
-    public function setAdresseClient($adresseclient)
+    /**
+     * Set adresseclient
+     *
+     * @param string $adresseclient
+     *
+     * @return EnteteDevis
+     */
+    public function setAdresseclient($adresseclient)
     {
         $this->adresseclient = $adresseclient;
+
+        return $this;
     }
-    public function getAdresseClient()
+
+    /**
+     * Get adresseclient
+     *
+     * @return string
+     */
+    public function getAdresseclient()
     {
         return $this->adresseclient;
     }
 
-    // IntituleDevis
-    public function setIntituleDevis($intituledevis)
+    /**
+     * Set intituledevis
+     *
+     * @param string $intituledevis
+     *
+     * @return EnteteDevis
+     */
+    public function setIntituledevis($intituledevis)
     {
         $this->intituledevis = $intituledevis;
+
+        return $this;
     }
-    public function getIntituleDevis()
+
+    /**
+     * Get intituledevis
+     *
+     * @return string
+     */
+    public function getIntituledevis()
     {
         return $this->intituledevis;
     }
 
-    // DateCreation
-    public function setDateCreation($datecreation)
+    /**
+     * Set datecreation
+     *
+     * @param \DateTime $datecreation
+     *
+     * @return EnteteDevis
+     */
+    public function setDatecreation($datecreation)
     {
         $this->datecreation = $datecreation;
+
+        return $this;
     }
-    public function getDateCreation()
+
+    /**
+     * Get datecreation
+     *
+     * @return \DateTime
+     */
+    public function getDatecreation()
     {
         return $this->datecreation;
     }
 
-    // Date
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return EnteteDevis
+     */
     public function setDate($date)
     {
         $this->date = $date;
+
+        return $this;
     }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
     public function getDate()
     {
         return $this->date;
     }
 
-    // DateImpression
-    public function setDateImpression($dateimpression)
+    /**
+     * Set dateimpression
+     *
+     * @param \DateTime $dateimpression
+     *
+     * @return EnteteDevis
+     */
+    public function setDateimpression($dateimpression)
     {
         $this->dateimpression = $dateimpression;
+
+        return $this;
     }
-    public function getDateImpression()
+
+    /**
+     * Get dateimpression
+     *
+     * @return \DateTime
+     */
+    public function getDateimpression()
     {
         return $this->dateimpression;
     }
 
-    // LieuImpression
-    public function setLieuImpression($lieuimpression)
+    /**
+     * Set lieuimpression
+     *
+     * @param string $lieuimpression
+     *
+     * @return EnteteDevis
+     */
+    public function setLieuimpression($lieuimpression)
     {
         $this->lieuimpression = $lieuimpression;
+
+        return $this;
     }
-    public function getLieuImpression()
+
+    /**
+     * Get lieuimpression
+     *
+     * @return string
+     */
+    public function getLieuimpression()
     {
         return $this->lieuimpression;
     }
 }
-

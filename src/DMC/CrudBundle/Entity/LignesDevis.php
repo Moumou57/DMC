@@ -98,125 +98,279 @@ class LignesDevis
      */
     private $italique = '0';
 
-    //------------------------------------ Getter / Setter
-    // ID
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    // Position
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return LignesDevis
+     */
     public function setPosition($position)
     {
         $this->position = $position;
+
+        return $this;
     }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
     public function getPosition()
     {
         return $this->position;
     }
 
-    // PositionMaitre
-    public function setPositionMaitre($positionmaitre)
+    /**
+     * Set positionmaitre
+     *
+     * @param integer $positionmaitre
+     *
+     * @return LignesDevis
+     */
+    public function setPositionmaitre($positionmaitre)
     {
         $this->positionmaitre = $positionmaitre;
+
+        return $this;
     }
-    public function getPositionMaitre()
+
+    /**
+     * Get positionmaitre
+     *
+     * @return integer
+     */
+    public function getPositionmaitre()
     {
         return $this->positionmaitre;
     }
 
-    // Article
+    /**
+     * Set article
+     *
+     * @param string $article
+     *
+     * @return LignesDevis
+     */
     public function setArticle($article)
     {
         $this->article = $article;
+
+        return $this;
     }
+
+    /**
+     * Get article
+     *
+     * @return string
+     */
     public function getArticle()
     {
         return $this->article;
     }
 
-    // Libelle
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     *
+     * @return LignesDevis
+     */
     public function setLibelle($libelle)
     {
         $this->libelle = $libelle;
+
+        return $this;
     }
+
+    /**
+     * Get libelle
+     *
+     * @return string
+     */
     public function getLibelle()
     {
         return $this->libelle;
     }
 
-    // Unite
+    /**
+     * Set unite
+     *
+     * @param string $unite
+     *
+     * @return LignesDevis
+     */
     public function setUnite($unite)
     {
         $this->unite = $unite;
+
+        return $this;
     }
+
+    /**
+     * Get unite
+     *
+     * @return string
+     */
     public function getUnite()
     {
         return $this->unite;
     }
 
-    // Quantite
+    /**
+     * Set quantite
+     *
+     * @param float $quantite
+     *
+     * @return LignesDevis
+     */
     public function setQuantite($quantite)
     {
         $this->quantite = $quantite;
+
+        return $this;
     }
+
+    /**
+     * Get quantite
+     *
+     * @return float
+     */
     public function getQuantite()
     {
         return $this->quantite;
     }
 
-    // PU_HT
+    /**
+     * Set puHt
+     *
+     * @param float $puHt
+     *
+     * @return LignesDevis
+     */
     public function setPuHt($puHt)
     {
         $this->puHt = $puHt;
+
+        return $this;
     }
+
+    /**
+     * Get puHt
+     *
+     * @return float
+     */
     public function getPuHt()
     {
         return $this->puHt;
     }
 
-    // Total_HT
+    /**
+     * Set totalHt
+     *
+     * @param float $totalHt
+     *
+     * @return LignesDevis
+     */
     public function setTotalHt($totalHt)
     {
         $this->totalHt = $totalHt;
+
+        return $this;
     }
+
+    /**
+     * Get totalHt
+     *
+     * @return float
+     */
     public function getTotalHt()
     {
         return $this->totalHt;
     }
 
-    // Souligne
+    /**
+     * Set souligne
+     *
+     * @param boolean $souligne
+     *
+     * @return LignesDevis
+     */
     public function setSouligne($souligne)
     {
         $this->souligne = $souligne;
+
+        return $this;
     }
+
+    /**
+     * Get souligne
+     *
+     * @return boolean
+     */
     public function getSouligne()
     {
         return $this->souligne;
     }
 
-    // Gras
+    /**
+     * Set gras
+     *
+     * @param boolean $gras
+     *
+     * @return LignesDevis
+     */
     public function setGras($gras)
     {
         $this->gras = $gras;
+
+        return $this;
     }
+
+    /**
+     * Get gras
+     *
+     * @return boolean
+     */
     public function getGras()
     {
         return $this->gras;
     }
 
-    // Italique
+    /**
+     * Set italique
+     *
+     * @param boolean $italique
+     *
+     * @return LignesDevis
+     */
     public function setItalique($italique)
     {
         $this->italique = $italique;
+
+        return $this;
     }
+
+    /**
+     * Get italique
+     *
+     * @return boolean
+     */
     public function getItalique()
     {
         return $this->italique;
     }
 }
-

@@ -77,95 +77,207 @@ class Clients
      */
     private $email;
 
-    //------------------------------------ Getter / Setter
-    // ID
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    // Nom
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Clients
+     */
     public function setNom($nom)
     {
         $this->nom = $nom;
+
+        return $this;
     }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
     public function getNom()
     {
         return $this->nom;
     }
 
-    // Adresse
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Clients
+     */
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
+
+        return $this;
     }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
     public function getAdresse()
     {
         return $this->adresse;
     }
 
-    // Ville
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Clients
+     */
     public function setVille($ville)
     {
         $this->ville = $ville;
+
+        return $this;
     }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
     public function getVille()
     {
         return $this->ville;
     }
 
-    // CodePostal
-    public function setCodePostal($codepostal)
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return Clients
+     */
+    public function setCodepostal($codepostal)
     {
         $this->codepostal = $codepostal;
+
+        return $this;
     }
-    public function getCodePostal()
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
     {
         return $this->codepostal;
     }
 
-    // Pays
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Clients
+     */
     public function setPays($pays)
     {
         $this->pays = $pays;
+
+        return $this;
     }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
     public function getPays()
     {
         return $this->pays;
     }
 
-    // BoitePostale
-    public function setBoitePostal($boitepostal)
+    /**
+     * Set boitepostal
+     *
+     * @param string $boitepostal
+     *
+     * @return Clients
+     */
+    public function setBoitepostal($boitepostal)
     {
         $this->boitepostal = $boitepostal;
+
+        return $this;
     }
-    public function getBoitePostal()
+
+    /**
+     * Get boitepostal
+     *
+     * @return string
+     */
+    public function getBoitepostal()
     {
         return $this->boitepostal;
     }
 
-    // Telephone
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Clients
+     */
     public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
+
+        return $this;
     }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
     public function getTelephone()
     {
         return $this->telephone;
     }
 
-    // Email
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Clients
+     */
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
     }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
     }
 }
-
