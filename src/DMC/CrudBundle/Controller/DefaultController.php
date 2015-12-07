@@ -12,4 +12,9 @@ class DefaultController extends Controller
     {
         return $this->render('DMCCrudBundle:Default:index.html.twig');
     }
+
+	public function sectionArticleAction()
+    {
+        return $this->render('DMCCrudBundle:Default:sectionArticle.html.twig');
+    }    
 }

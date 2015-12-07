@@ -14,70 +14,106 @@ body{
 #application {
 	position: absolute;
 	top: 40%;
-	padding-left: 26%;
+	padding-left: 23.5%;
 }
 
 #application div {
 	display: inline;
-	margin-right: 75px;
+	margin-right: 120px;
+}
+
+#application33 {
+	position: absolute;
+	top: 40%;
+	padding-left: 32%;
+}
+#application33 div {
+	display: inline;
+	margin-right: 120px;
 }
 
 /*** Menu home ***/
 #facturation {
 	position: absolute;
-	margin-left: -9%;
+	margin-left: -10.5%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
 #devis {
 	position: absolute;
-	margin-left: -7%;
+	margin-left: -7.5%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
 #histodevis {
 	position: absolute;
-	margin-left: -11%;
+	margin-left: -13.5%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
 #gestion {
 	position: absolute;
-	margin-left: 19%;
+	margin-left: 22%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
-/*** Menu Gestion DMC ***/
-#classification {
-	position: absolute;
-	margin-left: -12%;
-	top: 150px;
-	font-size: 25px;
-}
-
+/*** Menu Gestion DMC 
+	- Général
+***/
 #articles {
 	position: absolute;
-	margin-left: -7.5%;
+	margin-left: -9%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
 #clients {
 	position: absolute;
-	margin-left: -8%;
+	margin-left: -9.5%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
 }
 
 #societes {
 	position: absolute;
-	margin-left: 20.5%;
+	margin-left: 14%;
 	top: 150px;
-	font-size: 25px;
+	font-size: 40px;
+}
+
+/*** Menu Gestion DMC 
+	- Articles
+***/
+#achat {
+	position: absolute;
+	margin-left: -7.5%;
+	top: 150px;
+	font-size: 40px;
+}
+
+#main_oeuvre {
+	position: absolute;
+	margin-left: -12.5%;
+	top: 150px;
+	font-size: 40px;
+}
+
+#art_compo {
+	position: absolute;
+	margin-left: -10%;
+	top: 150px;
+	font-size: 40px;
+}
+
+#famille {
+	position: absolute;
+	margin-left: 22%;
+	top: 150px;
+	font-size: 40px;
 }
 
 /** NAVBAR **/

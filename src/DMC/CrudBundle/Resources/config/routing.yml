@@ -2,6 +2,10 @@ dmc_crud_homepage:
     path:     /
     defaults: { _controller: DMCCrudBundle:Default:index }
 
+dmc_crud_section_article:
+    path:     /SectionArticle
+    defaults: { _controller: DMCCrudBundle:Default:sectionArticle }
+
 ###########################
 # RESSOURCES
 dmc_crud_ressources_view:
