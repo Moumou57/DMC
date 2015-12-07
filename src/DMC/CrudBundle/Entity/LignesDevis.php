@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * LignesDevis
  *
- * @ORM\Table(name="lignes_devis")
+ * @ORM\Table(name="lignes_devis", indexes={@ORM\Index(name="IDX_2FD8E619BF396750", columns={"id"})})
  * @ORM\Entity
  */
 class LignesDevis
@@ -15,11 +15,20 @@ class LignesDevis
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="version", type="smallint", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $id;
+    private $version = '1';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ligne_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $ligneId;
 
     /**
      * @var integer
@@ -98,16 +107,66 @@ class LignesDevis
      */
     private $italique = '0';
 
+    /**
+     * @var \EnteteDevis
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="EnteteDevis")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
 
 
     /**
-     * Get id
+     * Set version
+     *
+     * @param integer $version
+     *
+     * @return LignesDevis
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
      *
      * @return integer
      */
-    public function getId()
+    public function getVersion()
     {
-        return $this->id;
+        return $this->version;
+    }
+
+    /**
+     * Set ligneId
+     *
+     * @param integer $ligneId
+     *
+     * @return LignesDevis
+     */
+    public function setLigneId($ligneId)
+    {
+        $this->ligneId = $ligneId;
+
+        return $this;
+    }
+
+    /**
+     * Get ligneId
+     *
+     * @return integer
+     */
+    public function getLigneId()
+    {
+        return $this->ligneId;
     }
 
     /**
@@ -372,5 +431,29 @@ class LignesDevis
     public function getItalique()
     {
         return $this->italique;
+    }
+
+    /**
+     * Set id
+     *
+     * @param \DMC\CrudBundle\Entity\EnteteDevis $id
+     *
+     * @return LignesDevis
+     */
+    public function setId(\DMC\CrudBundle\Entity\EnteteDevis $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return \DMC\CrudBundle\Entity\EnteteDevis
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

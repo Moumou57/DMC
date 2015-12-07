@@ -31,9 +31,9 @@ class ClassificationsRessources
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_famille", type="integer", nullable=false)
+     * @ORM\Column(name="idFamille", type="integer", nullable=true)
      */
-    private $idFamille;
+    private $idfamille;
 
 
 
@@ -72,26 +72,26 @@ class ClassificationsRessources
     }
 
     /**
-     * Set idFamille
+     * Set idfamille
      *
-     * @param integer $idFamille
+     * @param integer $idfamille
      *
      * @return ClassificationsRessources
      */
-    public function setIdFamille($idFamille)
+    public function setIdfamille($idfamille)
     {
-        $this->idFamille = $idFamille;
+        $this->idfamille = $idfamille;
 
         return $this;
     }
 
     /**
-     * Get idFamille
+     * Get idfamille
      *
      * @return integer
      */
-    public function getIdFamille()
+    public function getIdfamille()
     {
-        return $this->idFamille;
+        return $this->idfamille;
     }
 }

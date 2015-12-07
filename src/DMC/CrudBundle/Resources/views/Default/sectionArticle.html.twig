@@ -3,7 +3,7 @@
 {% block Navigation %}
 
 			<li ><a href="{{ path ('dmc_devis_homepage') }}">Home</a></li>
-			<li class="active dropdown">
+			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}">Gestion DMC <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Ressources / Articles</a></li>
@@ -11,36 +11,31 @@
 					<li><a href="#">Sociétés</a></li> 
 				</ul>
 			</li>
-	{#
-			<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"> Sociétés <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">EG LUX</a></li>
-					<li><a href="#">RENOVER by EG Lux</a></li>
-					<li><a href="#">Société 1-3</a></li> 
-				</ul>
-			</li>
-	#}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}">Classification Article<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Afficher</a></li>
-					<li><a href="#">Ajouter</a></li>
-					<li><a href="#">Modifier</a></li> 
-					<li><a href="#">Supprimer</a></li> 
-				</ul>
-			</li> 
 
+			{# Classification Article #}
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Article <span class="caret"></span></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Classification Article <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Afficher</a></li>
+					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Afficher</a></li>
 					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Ajouter</a></li>
 					<li><a href="#">Modifier</a></li> 
 					<li><a href="#">Supprimer</a></li> 
 				</ul>
 			</li>
 
+			{# Article #}
+			<li class="dropdown active">
+				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Article <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Achats</a></li>
+					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Composés</a></li>
+					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Ajouter Article</a></li>
+					<li><a href="#">Modifier</a></li> 
+					<li><a href="#">Supprimer</a></li> 
+				</ul>
+			</li>
+
+			{# Clients #}
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Clients <span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -51,6 +46,7 @@
 				</ul>
 			</li>
 
+			{# Société #}
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Sociétés <span class="caret"></span></a>
 				<ul class="dropdown-menu">

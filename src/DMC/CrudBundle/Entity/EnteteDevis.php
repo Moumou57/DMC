@@ -17,9 +17,18 @@ class EnteteDevis
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="version", type="smallint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $version = '1';
 
     /**
      * @var integer
@@ -77,7 +86,28 @@ class EnteteDevis
      */
     private $lieuimpression;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_societe", type="integer", nullable=false)
+     */
+    private $idSociete;
 
+
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return EnteteDevis
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * Get id
@@ -87,6 +117,30 @@ class EnteteDevis
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set version
+     *
+     * @param integer $version
+     *
+     * @return EnteteDevis
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return integer
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 
     /**
@@ -279,5 +333,29 @@ class EnteteDevis
     public function getLieuimpression()
     {
         return $this->lieuimpression;
+    }
+
+    /**
+     * Set idSociete
+     *
+     * @param integer $idSociete
+     *
+     * @return EnteteDevis
+     */
+    public function setIdSociete($idSociete)
+    {
+        $this->idSociete = $idSociete;
+
+        return $this;
+    }
+
+    /**
+     * Get idSociete
+     *
+     * @return integer
+     */
+    public function getIdSociete()
+    {
+        return $this->idSociete;
     }
 }
