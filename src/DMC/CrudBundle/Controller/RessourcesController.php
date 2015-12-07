@@ -27,7 +27,7 @@ class RessourcesController extends Controller
 
         $listRessources = $repository->findAll();
 
-        return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ressources' => $listRessources));
+        return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ressources' => $listRessources, 'titre' => 'Ressources'));
     }
 
     public function insertAction(Request $request)
@@ -91,10 +91,10 @@ class RessourcesController extends Controller
         }
 
         return $this->render('DMCCrudBundle:Ressources:edit.html.twig');
-        }
+    }
 
-        public function deleteAction($id)
-        {
+    public function deleteAction($id)
+    {
         // Ici, on récupérera le ressource correspondant à $id
 
         // Ici, on gérera la suppression du ressource en question
@@ -102,5 +102,28 @@ class RessourcesController extends Controller
         return $this->render('DMCCrudBundle:Ressources:delete.html.twig');
     }
 
+    public function listAchatsAction()
+    {
+       $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('DMCCrudBundle:Ressources');
+
+       $listAchats = $repository->getListAchats(false);
+       
+       return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ressources' => $listAchats, 'titre' => 'Achats'));
+    }
+
+    public function listComposesAction()
+    {
+       $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('DMCCrudBundle:Ressources');
+
+       $listAchats = $repository->getListAchats(true);
+       
+       return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ressources' => $listAchats, 'titre' => 'Articles composés'));
+    }
 
 }

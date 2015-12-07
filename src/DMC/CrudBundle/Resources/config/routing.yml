@@ -77,3 +77,13 @@ dmc_crud_classificationsRessources_delete:
 dmc_crud_classificationsRessources_edit:
     path:     /classificationsRessources/edit
     defaults: { _controller: DMCCrudBundle:ClassificationsRessources:edit }
+
+###########################
+# SECTION ARTICLES
+dmc_crud_secArticle_achats:
+    path:     /sectionArticle/achats
+    defaults: { _controller: DMCCrudBundle:Ressources:listAchats }
+
+dmc_crud_secArticle_composes:
+    path:     /sectionArticle/composes
+    defaults: { _controller: DMCCrudBundle:Ressources:listComposes }

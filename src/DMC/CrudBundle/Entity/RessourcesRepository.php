@@ -5,7 +5,7 @@ namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class CRessourcesRepository extends EntityRepository
+class RessourcesRepository extends EntityRepository
 {
   
   public function findAll()
@@ -33,4 +33,25 @@ class CRessourcesRepository extends EntityRepository
     // On retourne ces résultats
     return $results;
   }
+
+  public function getListAchats($estcompose)
+  {
+    // Méthode 1 : en passant par l'EntityManager
+    $queryBuilder = $this->_em->createQueryBuilder()
+      ->select('a')
+      ->from($this->_entityName, 'a')
+      ->where('a.estcompose = :estcompose')
+      ->setParameter('estcompose', $estcompose)
+    ;
+
+    // On récupère la Query à partir du QueryBuilder
+    $query = $queryBuilder->getQuery();
+
+    // On récupère les résultats à partir de la Query
+    $results = $query->getResult();
+
+    // On retourne ces résultats
+    return $results;
+  }
+
 }
