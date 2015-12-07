@@ -31,7 +31,7 @@ class ClassificationsRessources
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_famille", type="integer", nullable=false)
+     * @ORM\Column(name="idFamille", type="integer", nullable=false)
      */
     private $idFamille;
 

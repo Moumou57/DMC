@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block Header %}
+	<h1>Classifications Ressources</h1>
+{% endblock %}
+
+{% block Application %}
+	{# Messages notif #}
+	{%  for flashMessage in app.session.flashbag.get('notice')  %}
+		<div class="success alert-success" role="alert">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+
+	<div id="backtable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Désignation</th>
+					<th>Famille</th>
+				</tr>
+			</thead>
+			<tbody>
+			  	{% for classificationRessource in classificationsRessources %}
+			  	<input type="hidden" id="classificationRessource" value={{ classificationRessource.id }} />
+			    <tr class="ligne">
+				    <td>{{ classificationRessource.designation }}</td>
+				    <td>{{ classificationRessource.idFamille }}</td>
+				</tr>
+		 		{% endfor %}
+		 	</tbody>
+		</table>
+	</div>
+{% endblock %}

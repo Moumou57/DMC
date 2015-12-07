@@ -59,3 +59,21 @@ dmc_crud_societes_delete:
 dmc_crud_societes_edit:
     path:     /societes/edit
     defaults: { _controller: DMCCrudBundle:Societes:edit }
+
+###########################
+# CLASSIFICATIONS RESSOURCES
+dmc_crud_classificationsRessources_view:
+    path:     /classificationsRessources/view
+    defaults: { _controller: DMCCrudBundle:ClassificationsRessources:view }
+
+dmc_crud_classificationsRessources_insert:
+    path:     /classificationsRessources/insert
+    defaults: { _controller: DMCCrudBundle:ClassificationsRessources:insert }
+
+dmc_crud_classificationsRessources_delete:
+    path:     /classificationsRessources/delete
+    defaults: { _controller: DMCCrudBundle:ClassificationsRessources:delete }
+
+dmc_crud_classificationsRessources_edit:
+    path:     /classificationsRessources/edit
+    defaults: { _controller: DMCCrudBundle:ClassificationsRessources:edit }
