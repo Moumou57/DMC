@@ -9,20 +9,20 @@ dmc_crud_section_article:
 ###########################
 # RESSOURCES
 dmc_crud_ressources_view:
-    path:     /ressources
+    path:     /ressources/view
     defaults: { _controller: DMCCrudBundle:Ressources:view }
 
 dmc_crud_ressources_insert:
     path:     /ressources/insert
-    defaults: { _controller: DMCCrudBundle:Ressources:view }
+    defaults: { _controller: DMCCrudBundle:Ressources:insert }
 
 dmc_crud_ressources_delete:
     path:     /ressources/delete
-    defaults: { _controller: DMCCrudBundle:Ressources:view }
+    defaults: { _controller: DMCCrudBundle:Ressources:delete }
 
 dmc_crud_ressources_edit:
     path:     /ressources/edit
-    defaults: { _controller: DMCCrudBundle:Ressources:view }
+    defaults: { _controller: DMCCrudBundle:Ressources:edit }
 
 ###########################
 # CLIENTS

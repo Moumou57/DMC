@@ -1,4 +1,3 @@
-{# app/Resources/views/lucky/number.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block Header %}
@@ -6,5 +5,43 @@
 {% endblock %}
 
 {% block Application %}
-	<div><span> ID : {{ress}} </span></div>
+	{# Messages notif #}
+	{%  for flashMessage in app.session.flashbag.get('notice')  %}
+		<div class="success alert-success" role="alert">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+
+	<div id="backtable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Désignation</th>
+					<th>Famille</th>
+					<th>Unité</th>
+					<th>Prix</th>
+					<th>Article composé</th>
+				</tr>
+			</thead>
+			<tbody>
+			  	{% for ressource in ressources %}
+			  	<input type="hidden" id="ressource" value={{ ressource.id }} />
+			    <tr class="ligne">
+				    <td>{{ ressource.designation }}</td>
+				    <td>{{ ressource.famille }}</td>
+				    <td>{{ ressource.unite }}</td>
+				    <td>{{ ressource.prix }}</td>
+
+				    <td>
+				     {% if ressource.estcompose == true %}
+				     	Oui
+				     {% else %}
+				     	Non
+				     {% endif %}
+				    </td>
+				</tr>
+		 		{% endfor %}
+		 	</tbody>
+		</table>
+	</div>
 {% endblock %}
