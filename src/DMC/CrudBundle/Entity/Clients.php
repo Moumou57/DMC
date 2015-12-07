@@ -59,9 +59,9 @@ class Clients
     /**
      * @var string
      *
-     * @ORM\Column(name="boitepostal", type="string", length=20, nullable=false)
+     * @ORM\Column(name="boitepostale", type="string", length=20, nullable=false)
      */
-    private $boitepostal;
+    private $boitepostale;
 
     /**
      * @var string
@@ -210,27 +210,27 @@ class Clients
     }
 
     /**
-     * Set boitepostal
+     * Set boitepostale
      *
-     * @param string $boitepostal
+     * @param string $boitepostale
      *
      * @return Clients
      */
-    public function setBoitepostal($boitepostal)
+    public function setBoitepostale($boitepostale)
     {
-        $this->boitepostal = $boitepostal;
+        $this->boitepostale = $boitepostale;
 
         return $this;
     }
 
     /**
-     * Get boitepostal
+     * Get boitepostale
      *
      * @return string
      */
-    public function getBoitepostal()
+    public function getBoitepostale()
     {
-        return $this->boitepostal;
+        return $this->boitepostale;
     }
 
     /**

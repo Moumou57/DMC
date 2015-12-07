@@ -8,9 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ressources
  *
  * @ORM\Table(name="ressources")
- * @ORM\Entity(
- *   repositoryClass="DMC\CrudBundle\Entity\RessourcesRepository"
- * )
+ * @ORM\Entity
  */
 class Ressources
 {

@@ -35,6 +35,8 @@ class ClassificationsRessources
      */
     private $idfamille;
 
+
+
     /**
      * Get id
      *

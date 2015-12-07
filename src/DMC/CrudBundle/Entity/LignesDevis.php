@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * LignesDevis
  *
- * @ORM\Table(name="lignes_devis", indexes={@ORM\Index(name="IDX_2FD8E619BF396750", columns={"id"})})
+ * @ORM\Table(name="lignes_devis")
  * @ORM\Entity
  */
 class LignesDevis
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
     /**
      * @var integer
      *
@@ -29,6 +38,13 @@ class LignesDevis
      * @ORM\GeneratedValue(strategy="NONE")
      */
     private $ligneId;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="type", type="boolean", nullable=false)
+     */
+    private $type;
 
     /**
      * @var integer
@@ -108,18 +124,44 @@ class LignesDevis
     private $italique = '0';
 
     /**
-     * @var \EnteteDevis
+     * @var boolean
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="EnteteDevis")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="affprix", type="boolean", nullable=false)
      */
-    private $id;
+    private $affprix;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="affqte", type="boolean", nullable=false)
+     */
+    private $affqte;
 
 
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return LignesDevis
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set version
@@ -167,6 +209,30 @@ class LignesDevis
     public function getLigneId()
     {
         return $this->ligneId;
+    }
+
+    /**
+     * Set type
+     *
+     * @param boolean $type
+     *
+     * @return LignesDevis
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return boolean
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -434,26 +500,50 @@ class LignesDevis
     }
 
     /**
-     * Set id
+     * Set affprix
      *
-     * @param \DMC\CrudBundle\Entity\EnteteDevis $id
+     * @param boolean $affprix
      *
      * @return LignesDevis
      */
-    public function setId(\DMC\CrudBundle\Entity\EnteteDevis $id)
+    public function setAffprix($affprix)
     {
-        $this->id = $id;
+        $this->affprix = $affprix;
 
         return $this;
     }
 
     /**
-     * Get id
+     * Get affprix
      *
-     * @return \DMC\CrudBundle\Entity\EnteteDevis
+     * @return boolean
      */
-    public function getId()
+    public function getAffprix()
     {
-        return $this->id;
+        return $this->affprix;
+    }
+
+    /**
+     * Set affqte
+     *
+     * @param boolean $affqte
+     *
+     * @return LignesDevis
+     */
+    public function setAffqte($affqte)
+    {
+        $this->affqte = $affqte;
+
+        return $this;
+    }
+
+    /**
+     * Get affqte
+     *
+     * @return boolean
+     */
+    public function getAffqte()
+    {
+        return $this->affqte;
     }
 }

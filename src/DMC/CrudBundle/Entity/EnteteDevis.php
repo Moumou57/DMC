@@ -47,9 +47,37 @@ class EnteteDevis
     /**
      * @var string
      *
-     * @ORM\Column(name="adresseclient", type="string", length=100, nullable=false)
+     * @ORM\Column(name="adresseclient", type="string", length=200, nullable=false)
      */
     private $adresseclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="villeclient", type="string", length=100, nullable=false)
+     */
+    private $villeclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostalclient", type="string", length=20, nullable=false)
+     */
+    private $codepostalclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="paysclient", type="string", length=100, nullable=false)
+     */
+    private $paysclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="boitepostaleclient", type="string", length=20, nullable=false)
+     */
+    private $boitepostaleclient;
 
     /**
      * @var string
@@ -92,6 +120,13 @@ class EnteteDevis
      * @ORM\Column(name="id_societe", type="integer", nullable=false)
      */
     private $idSociete;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="deleted", type="boolean", nullable=false)
+     */
+    private $deleted;
 
 
 
@@ -213,6 +248,102 @@ class EnteteDevis
     public function getAdresseclient()
     {
         return $this->adresseclient;
+    }
+
+    /**
+     * Set villeclient
+     *
+     * @param string $villeclient
+     *
+     * @return EnteteDevis
+     */
+    public function setVilleclient($villeclient)
+    {
+        $this->villeclient = $villeclient;
+
+        return $this;
+    }
+
+    /**
+     * Get villeclient
+     *
+     * @return string
+     */
+    public function getVilleclient()
+    {
+        return $this->villeclient;
+    }
+
+    /**
+     * Set codepostalclient
+     *
+     * @param string $codepostalclient
+     *
+     * @return EnteteDevis
+     */
+    public function setCodepostalclient($codepostalclient)
+    {
+        $this->codepostalclient = $codepostalclient;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostalclient
+     *
+     * @return string
+     */
+    public function getCodepostalclient()
+    {
+        return $this->codepostalclient;
+    }
+
+    /**
+     * Set paysclient
+     *
+     * @param string $paysclient
+     *
+     * @return EnteteDevis
+     */
+    public function setPaysclient($paysclient)
+    {
+        $this->paysclient = $paysclient;
+
+        return $this;
+    }
+
+    /**
+     * Get paysclient
+     *
+     * @return string
+     */
+    public function getPaysclient()
+    {
+        return $this->paysclient;
+    }
+
+    /**
+     * Set boitepostaleclient
+     *
+     * @param string $boitepostaleclient
+     *
+     * @return EnteteDevis
+     */
+    public function setBoitepostaleclient($boitepostaleclient)
+    {
+        $this->boitepostaleclient = $boitepostaleclient;
+
+        return $this;
+    }
+
+    /**
+     * Get boitepostaleclient
+     *
+     * @return string
+     */
+    public function getBoitepostaleclient()
+    {
+        return $this->boitepostaleclient;
     }
 
     /**
@@ -357,5 +488,29 @@ class EnteteDevis
     public function getIdSociete()
     {
         return $this->idSociete;
+    }
+
+    /**
+     * Set deleted
+     *
+     * @param boolean $deleted
+     *
+     * @return EnteteDevis
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return boolean
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
     }
 }
