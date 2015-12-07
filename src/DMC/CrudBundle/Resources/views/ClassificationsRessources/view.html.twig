@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block Header %}
-	<h1> {{ titre }}</h1>
+	<h1>Classifications Ressources</h1>
 {% endblock %}
 
 {% block Application %}
@@ -18,27 +18,14 @@
 				<tr>
 					<th>Désignation</th>
 					<th>Famille</th>
-					<th>Unité</th>
-					<th>Prix</th>
-					<th>Article composé</th>
 				</tr>
 			</thead>
 			<tbody>
-			  	{% for ressource in ressources %}
-			  	<input type="hidden" id="ressource" value={{ ressource.id }} />
+			  	{% for classificationRessource in classificationsRessources %}
+			  	<input type="hidden" id="classificationRessource" value={{ classificationRessource.id }} />
 			    <tr class="ligne">
-				    <td>{{ ressource.designation }}</td>
-				    <td>{{ ressource.famille }}</td>
-				    <td>{{ ressource.unite }}</td>
-				    <td>{{ ressource.prix }}</td>
-
-				    <td>
-				     {% if ressource.estcompose == true %}
-				     	Oui
-				     {% else %}
-				     	Non
-				     {% endif %}
-				    </td>
+				    <td>{{ classificationRessource.designation }}</td>
+				    <td>{{ classificationRessource.idFamille }}</td>
 				</tr>
 		 		{% endfor %}
 		 	</tbody>
