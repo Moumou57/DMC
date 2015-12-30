@@ -56,6 +56,28 @@ class Ressources
      */
     private $estcompose = '0';
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Ressources", inversedBy="idArticle")
+     * @ORM\JoinTable(name="composes_ressources",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_article", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_composant", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idComposant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idComposant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -186,5 +208,39 @@ class Ressources
     public function getEstcompose()
     {
         return $this->estcompose;
+    }
+
+    /**
+     * Add idComposant
+     *
+     * @param \DMC\CrudBundle\Entity\Ressources $idComposant
+     *
+     * @return Ressources
+     */
+    public function addIdComposant(\DMC\CrudBundle\Entity\Ressources $idComposant)
+    {
+        $this->idComposant[] = $idComposant;
+
+        return $this;
+    }
+
+    /**
+     * Remove idComposant
+     *
+     * @param \DMC\CrudBundle\Entity\Ressources $idComposant
+     */
+    public function removeIdComposant(\DMC\CrudBundle\Entity\Ressources $idComposant)
+    {
+        $this->idComposant->removeElement($idComposant);
+    }
+
+    /**
+     * Get idComposant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdComposant()
+    {
+        return $this->idComposant;
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EnteteDevis
  *
- * @ORM\Table(name="entete_devis")
+ * @ORM\Table(name="entete_devis", uniqueConstraints={@ORM\UniqueConstraint(name="U_id_societe", columns={"id_societe", "num_devis", "version"})}, indexes={@ORM\Index(name="numcommande", columns={"num_devis"}), @ORM\Index(name="version", columns={"version"}), @ORM\Index(name="id_client", columns={"id_client"}), @ORM\Index(name="id_societe", columns={"id_societe"})})
  * @ORM\Entity
  */
 class EnteteDevis
@@ -17,25 +17,23 @@ class EnteteDevis
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="version", type="smallint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\Column(name="num_devis", type="integer", nullable=false)
      */
-    private $version = '1';
+    private $numDevis;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="numeroclient", type="integer", nullable=false)
+     * @ORM\Column(name="version", type="smallint", nullable=false)
      */
-    private $numeroclient;
+    private $version = '1';
 
     /**
      * @var string
@@ -115,34 +113,33 @@ class EnteteDevis
     private $lieuimpression;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_societe", type="integer", nullable=false)
-     */
-    private $idSociete;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="deleted", type="boolean", nullable=false)
      */
     private $deleted;
 
-
+    /**
+     * @var \Clients
+     *
+     * @ORM\ManyToOne(targetEntity="Clients")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_client", referencedColumnName="id")
+     * })
+     */
+    private $idClient;
 
     /**
-     * Set id
+     * @var \Societes
      *
-     * @param integer $id
-     *
-     * @return EnteteDevis
+     * @ORM\ManyToOne(targetEntity="Societes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_societe", referencedColumnName="id")
+     * })
      */
-    public function setId($id)
-    {
-        $this->id = $id;
+    private $idSociete;
 
-        return $this;
-    }
+
 
     /**
      * Get id
@@ -152,6 +149,30 @@ class EnteteDevis
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set numDevis
+     *
+     * @param integer $numDevis
+     *
+     * @return EnteteDevis
+     */
+    public function setNumDevis($numDevis)
+    {
+        $this->numDevis = $numDevis;
+
+        return $this;
+    }
+
+    /**
+     * Get numDevis
+     *
+     * @return integer
+     */
+    public function getNumDevis()
+    {
+        return $this->numDevis;
     }
 
     /**
@@ -176,30 +197,6 @@ class EnteteDevis
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * Set numeroclient
-     *
-     * @param integer $numeroclient
-     *
-     * @return EnteteDevis
-     */
-    public function setNumeroclient($numeroclient)
-    {
-        $this->numeroclient = $numeroclient;
-
-        return $this;
-    }
-
-    /**
-     * Get numeroclient
-     *
-     * @return integer
-     */
-    public function getNumeroclient()
-    {
-        return $this->numeroclient;
     }
 
     /**
@@ -467,30 +464,6 @@ class EnteteDevis
     }
 
     /**
-     * Set idSociete
-     *
-     * @param integer $idSociete
-     *
-     * @return EnteteDevis
-     */
-    public function setIdSociete($idSociete)
-    {
-        $this->idSociete = $idSociete;
-
-        return $this;
-    }
-
-    /**
-     * Get idSociete
-     *
-     * @return integer
-     */
-    public function getIdSociete()
-    {
-        return $this->idSociete;
-    }
-
-    /**
      * Set deleted
      *
      * @param boolean $deleted
@@ -512,5 +485,53 @@ class EnteteDevis
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+    /**
+     * Set idClient
+     *
+     * @param \DMC\CrudBundle\Entity\Clients $idClient
+     *
+     * @return EnteteDevis
+     */
+    public function setIdClient(\DMC\CrudBundle\Entity\Clients $idClient = null)
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * Get idClient
+     *
+     * @return \DMC\CrudBundle\Entity\Clients
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * Set idSociete
+     *
+     * @param \DMC\CrudBundle\Entity\Societes $idSociete
+     *
+     * @return EnteteDevis
+     */
+    public function setIdSociete(\DMC\CrudBundle\Entity\Societes $idSociete = null)
+    {
+        $this->idSociete = $idSociete;
+
+        return $this;
+    }
+
+    /**
+     * Get idSociete
+     *
+     * @return \DMC\CrudBundle\Entity\Societes
+     */
+    public function getIdSociete()
+    {
+        return $this->idSociete;
     }
 }

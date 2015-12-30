@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ClassificationsRessources
  *
- * @ORM\Table(name="classifications_ressources")
+ * @ORM\Table(name="classifications_ressources", indexes={@ORM\Index(name="idFamille", columns={"idFamille"})})
  * @ORM\Entity
  */
 class ClassificationsRessources
@@ -29,9 +29,12 @@ class ClassificationsRessources
     private $designation;
 
     /**
-     * @var integer
+     * @var \ClassificationsRessources
      *
-     * @ORM\Column(name="idFamille", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="ClassificationsRessources")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idFamille", referencedColumnName="id")
+     * })
      */
     private $idfamille;
 
@@ -74,11 +77,11 @@ class ClassificationsRessources
     /**
      * Set idfamille
      *
-     * @param integer $idfamille
+     * @param \DMC\CrudBundle\Entity\ClassificationsRessources $idfamille
      *
      * @return ClassificationsRessources
      */
-    public function setIdfamille($idfamille)
+    public function setIdfamille(\DMC\CrudBundle\Entity\ClassificationsRessources $idfamille = null)
     {
         $this->idfamille = $idfamille;
 
@@ -88,7 +91,7 @@ class ClassificationsRessources
     /**
      * Get idfamille
      *
-     * @return integer
+     * @return \DMC\CrudBundle\Entity\ClassificationsRessources
      */
     public function getIdfamille()
     {
