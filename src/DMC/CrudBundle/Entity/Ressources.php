@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ressources
  *
  * @ORM\Table(name="ressources")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DMC\CrudBundle\Entity\RessourcesRepository")
  */
 class Ressources
 {
@@ -54,7 +54,7 @@ class Ressources
      *
      * @ORM\Column(name="estcompose", type="boolean", nullable=false)
      */
-    private $estcompose = '0';
+    private $estcompose = false;
 
     /**
      * @var \Doctrine\Common\Collections\Collection

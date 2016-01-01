@@ -129,8 +129,6 @@ class LignesDevis
      */
     private $idEntete;
 
-
-
     /**
      * Get idLigne
      *

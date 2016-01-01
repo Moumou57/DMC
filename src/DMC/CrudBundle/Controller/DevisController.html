@@ -1,0 +1,64 @@
+<?php
+
+namespace DMC\CrudBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+
+use DMC\CrudBundle\Entity\EnteteDevis;
+use DMC\CrudBundle\Entity\LignesDevis;
+use DMC\CrudBundle\Entity\Societes;
+
+class DevisController extends Controller
+{
+	public function indexAction()
+    {
+        return $this->render('DMCCrudBundle:Default:index.html.twig');
+    }
+
+	public function newAction()
+    {
+    	$Devis = new EnteteDevis();
+    	$Lignes = array();
+
+    	$repository = $this
+	  		->getDoctrine()
+		  	->getManager();
+/*
+		$listSocietes = $repository->getRepository('DMCCrudBundle:Societes')->findAll();
+		$listClients = $repository->getRepository('DMCCrudBundle:Clients')->findAll();
+*/
+
+
+    	$formBuilder = $this->get('form.factory')->createBuilder('form', $client);
+
+	    // On ajoute les champs de l'entité que l'on veut à notre formulaire
+	    $formBuilder
+	    	->add('id_societe','entity',array(
+	    		'class' => 'DMCCrudBundle:Societes',
+	    		'property' => 'nomsociete',
+	    		'expanded' => 'false',
+	    		'multiple' => 'false'
+	    		))
+	    	->add('num_devis', 'text')
+	    	->add('version', 'text')
+	    	->add('id_client', 'entity',array(
+	    		'class' => 'DMCCrudBundle:Clients',
+	    		'property' => 'id',
+	    		'expanded' => 'false',
+	    		'multiple' => 'false'
+	    		))
+	    	->add('nomclient',  'entity',array(
+	    		'class' => 'DMCCrudBundle:Clients',
+	    		'property' => 'name',
+	    		'expanded' => 'false',
+	    		'multiple' => 'false'
+	    		))
+	    			    	
+	    	->add('save', 'submit')
+	    	->getForm();
+
+        return $this->render('DMCCrudBundle:Default:sectionArticle.html.twig');
+    }    
+}

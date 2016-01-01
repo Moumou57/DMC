@@ -47,7 +47,7 @@ class ClientsController extends Controller
 	    	->add('ville', 'text')
 	    	->add('codepostal', 'text')
 	    	->add('pays', 'text')
-	    	->add('boitepostal', 'text')
+	    	->add('boitepostale', 'text')
 	    	->add('telephone', 'text')
 	    	->add('email', 'email')
 	    	->add('save', 'submit')

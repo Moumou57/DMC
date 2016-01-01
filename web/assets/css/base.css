@@ -2,6 +2,7 @@ body{
 	background-color: rgb(45,43,43);
 	color: rgb(240,240,240);
 	font-family: "Calibri";
+	font-size: 20px;
 	width:100%;
 }
 
@@ -153,4 +154,16 @@ th
 .ligne:hover 
 {
 	background-color: #FF8C00; 
+}
+
+/* Modification : Bootstrap */
+a:focus, a:hover {
+    color: #fff;
+}
+a {
+    color: #fff;
+}
+
+.dropdown-menu {
+	font-size: 20px;
 }
