@@ -47,7 +47,6 @@ class RessourcesController extends Controller
             ->add('unite', 'text')
             ->add('prix', 'text')
             ->add('estcompose', 'checkbox', array('required' => false))
-            ->add('save', 'submit')
             ->getForm();
 
         // À partir du formBuilder, on génère le formulaire
@@ -68,7 +67,15 @@ class RessourcesController extends Controller
           $request->getSession()->getFlashBag()->add('notice', 'Ressource bien enregistrée.');
 
           // On redirige vers la page de visualisation de l'annonce nouvellement créée
-          return $this->redirect($this->generateUrl('dmc_crud_ressources_view', array('id' => $ressource->getId())));
+          if ($this->getRequest()->request->get('submitAction') == 'save')
+            {
+                return $this->redirect($this->generateUrl('dmc_crud_ressources_view', array('id' => $ressource->getId())));
+            }
+            elseif ($this->getRequest()->request->get('submitAction') == 'saveandadd')
+            {
+                return $this->redirect($this->generateUrl('dmc_crud_ressources_insert'));
+            }
+
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire

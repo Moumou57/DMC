@@ -61,7 +61,8 @@
 	  {#{{ form_row(form.codepostal) }} #}
 
 	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+	 	<button type="submit" name="submitAction"  value="save"  class="btn btn-primary">Save</button> 
+ 		<button type="submit" name="submitAction"  value="saveandadd" class="btn btn-primary">Save and add</button>
 
 	  {# Génération automatique des champs pas encore écrits.
 	     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
