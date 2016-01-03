@@ -139,8 +139,6 @@ class EnteteDevis
      */
     private $idSociete;
 
-
-
     /**
      * Get id
      *

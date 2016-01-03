@@ -4,5 +4,5 @@ dmc_devis:
 
 dmc_crud:
     resource: "@DMCCrudBundle/Resources/config/routing.yml"
-    prefix:   /Crud
+    prefix:   /crud
 #	type:	annotation
