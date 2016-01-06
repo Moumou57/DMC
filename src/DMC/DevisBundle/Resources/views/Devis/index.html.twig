@@ -39,6 +39,14 @@
 	      </div>
 	    </div>
 
+		<div class="form-group">
+	      {{ form_label(form.intitule_devis, "Titre : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.intitule_devis) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.intitule_devis, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
 	    <div class="form-group">
 	      {{ form_label(form.version, "Version : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 	      {{ form_errors(form.version) }}
@@ -54,6 +62,51 @@
 	        {{ form_widget(form.id_client, {'attr': {'class': 'form-control'}}) }}
 	      </div>
 	    </div>
+
+		<div id="backtable">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Position</th>
+						<th>Article</th>
+						<th>Désignation</th>
+						<th>Unité</th>
+						<th>Quantité</th>
+						<th>Prix Unitaire HT</th>
+						<th>Total HT</th>
+						<th>Souligné</th>
+						<th>Gras</th>
+						<th>Italique</th>
+						<th>Afficher Prix</th>
+						<th>Afficher Quantité</th>
+						<th>En-tête</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for ligne in form.lignes %}
+					  	<input type="hidden" id="client" />
+					    <tr class="ligne">
+						    <td>{{ form_widget(ligne.type, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.position, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.article, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.libelle, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.unite, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.quantite, {'attr': {'class': 'form-control'}}) }}</td>
+							<td>{{ form_widget(ligne.puHt, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.totalHt, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.souligne, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.gras, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.italique, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.affprix, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.affqte, {'attr': {'class': 'form-control'}}) }}</td>
+						    <td>{{ form_widget(ligne.idEntete, {'attr': {'class': 'form-control'}}) }}</td>
+						</tr>
+			 		{% endfor %}
+			 	</tbody>
+			</table>
+		</div>
+
 
 	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}

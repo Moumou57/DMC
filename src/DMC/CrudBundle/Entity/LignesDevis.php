@@ -89,21 +89,21 @@ class LignesDevis
      *
      * @ORM\Column(name="souligne", type="boolean", nullable=false)
      */
-    private $souligne = '0';
+    private $souligne = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="gras", type="boolean", nullable=false)
      */
-    private $gras = '0';
+    private $gras = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="italique", type="boolean", nullable=false)
      */
-    private $italique = '0';
+    private $italique = false;
 
     /**
      * @var boolean

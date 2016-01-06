@@ -4,6 +4,8 @@ namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
+
 /**
  * EnteteDevis
  *
@@ -138,6 +140,17 @@ class EnteteDevis
      * })
      */
     private $idSociete;
+
+    //------------------------------------------------------------------------------------------
+    /**
+     * @ORM\OneToMany(targetEntity="LignesDevis", mappedBy="EnteteDevis")
+     */
+    protected $lignes;
+
+    public function __construct(){
+        $this->lignes = new ArrayCollection();
+    }
+    //------------------------------------------------------------------------------------------
 
     /**
      * Get id
@@ -531,5 +544,15 @@ class EnteteDevis
     public function getIdSociete()
     {
         return $this->idSociete;
+    }
+
+    /**
+     * Get lignes
+     *
+     * @return \DMC\CrudBundle\Entity\LignesDevis
+     */
+    public function getLignes()
+    {
+        return $this->lignes;
     }
 }

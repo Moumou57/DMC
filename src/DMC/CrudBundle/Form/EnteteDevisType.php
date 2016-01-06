@@ -21,9 +21,13 @@ class EnteteDevisType extends AbstractType
                 ))
             ->add('num_devis', 'text')
             ->add('version', 'text')
+            ->add('intitule_devis','text')
             ->add('id_client', 'entity',array(
                 'class' => 'DMCCrudBundle:Clients',
                 'choice_label' => 'nom'
+                ))
+            ->add('lignes','collection',array(
+                'type' => new LignesDevisType()
                 ))
             ->add('save', 'submit')
         ;

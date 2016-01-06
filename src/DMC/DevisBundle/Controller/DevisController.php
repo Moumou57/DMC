@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use DMC\CrudBundle\Entity\EnteteDevis;
+use DMC\CrudBundle\Entity\LignesDevis;
 use DMC\CrudBundle\Entity\Clients;
 use DMC\CrudBundle\Entity\Societes;
 
@@ -23,6 +24,9 @@ class DevisController extends Controller
     {
     	$devis = new EnteteDevis();
     	//$Lignes = array();
+    	$lignes = new LignesDevis();
+
+    	$devis->getLignes()->add($lignes);
 
     	$repository = $this
 	  		->getDoctrine()
@@ -48,16 +52,16 @@ class DevisController extends Controller
 	      $date = new \Datetime();
 
 	      $devis->setNomclient($client->getNom());
-	      $devis->setAdresseclient($client->getNom());
-	      $devis->setVilleclient($client->getNom());
-	      $devis->setCodepostalclient($client->getNom());
-	      $devis->setPaysclient($client->getNom());
-	      $devis->setBoitepostaleclient($client->getNom());
-	      $devis->setIntituledevis('Test');
+	      $devis->setAdresseclient($client->getAdresse());
+	      $devis->setVilleclient($client->getVille());
+	      $devis->setCodepostalclient($client->getCodepostal());
+	      $devis->setPaysclient($client->getPays());
+	      $devis->setBoitepostaleclient($client->getBoitepostale());
+	      //$devis->setIntituledevis('Test');
 	      $devis->setDatecreation($date);
 	      $devis->setDate($date);
-	      $devis->setDateimpression($date);
-	      $devis->setLieuimpression('Roodt');
+	      //$devis->setDateimpression($date);
+	      //$devis->setLieuimpression($societe->getVille());
 	      $devis->setDeleted(false);
 	      $devis->setIdClient($client);
 	      $devis->setIdSociete($societe);
