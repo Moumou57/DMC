@@ -6,107 +6,114 @@
 {% endblock %}
 
 {% block Application %}
-	<div><span>Société :</span></div>
-
 	<div id="formulaire">
 	    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
 	    {# Les erreurs générales du formulaire. #}
 	    {{ form_errors(form) }}
 
-	    <div class="form-group">
-	      {# Génération du label. #}
-	      {{ form_label(form.id_societe, "Société : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	    {# FORM SOCIETE #}
+	    <div id="formsocietes">
+	    	<span>Société</span>
+	    	<div id="formsocietesblock">
+			    <div class="form-group">
+			      {# Génération du label. #}
+			      {{ form_label(form.id_societe, "Société : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 
-	      {# Affichage des erreurs pour ce champ précis. #}
-	      {{ form_errors(form.id_societe) }}
+			      {# Affichage des erreurs pour ce champ précis. #}
+			      {{ form_errors(form.id_societe) }}
 
-	      <div class="col-sm-4">
-	        {# Génération de l'input. #}
-	        {{ form_widget(form.id_societe, {'attr': {'class': 'form-control'}}) }}
+			      <div class="col-sm-4">
+			        {# Génération de l'input. #}
+			        {{ form_widget(form.id_societe, {'attr': {'class': 'form-control'}}) }}
 
-	        {#{{ dump(form.id_societe.vars['choices']) }}#}
-	      </div>
+			        {#{{ dump(form.id_societe.vars['choices']) }}#}
+			      </div>
 
-	    </div>
+			    </div>
 
-	    {# Idem pour un autre champ. #}
-	    <div class="form-group">
-	      {{ form_label(form.num_devis, "N° Devis : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.num_devis) }}
-	      <div class="col-sm-4">
-	        {{ form_widget(form.num_devis, {'attr': {'class': 'form-control'}}) }}
-	      </div>
-	    </div>
+			    {# Idem pour un autre champ. #}
+			    <div class="form-group">
+			      {{ form_label(form.num_devis, "N° Devis : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			      {{ form_errors(form.num_devis) }}
+			      <div class="col-sm-4">
+			        {{ form_widget(form.num_devis, {'attr': {'class': 'form-control'}}) }}
+			      </div>
+			    </div>
 
-		<div class="form-group">
-	      {{ form_label(form.intitule_devis, "Titre : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.intitule_devis) }}
-	      <div class="col-sm-4">
-	        {{ form_widget(form.intitule_devis, {'attr': {'class': 'form-control'}}) }}
-	      </div>
-	    </div>
+				<div class="form-group">
+			      {{ form_label(form.intitule_devis, "Titre : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			      {{ form_errors(form.intitule_devis) }}
+			      <div class="col-sm-4">
+			        {{ form_widget(form.intitule_devis, {'attr': {'class': 'form-control'}}) }}
+			      </div>
+			    </div>
 
-	    <div class="form-group">
-	      {{ form_label(form.version, "Version : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.version) }}
-	      <div class="col-sm-4">
-	        {{ form_widget(form.version, {'attr': {'class': 'form-control'}}) }}
-	      </div>
-	    </div>
+			    <div class="form-group">
+			      {{ form_label(form.version, "Version : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			      {{ form_errors(form.version) }}
+			      <div class="col-sm-4">
+			        {{ form_widget(form.version, {'attr': {'class': 'form-control'}}) }}
+			      </div>
+			    </div>
 
-	    <div class="form-group">
-	      {{ form_label(form.id_client, "Client : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.id_client) }}
-	      <div class="col-sm-4">
-	        {{ form_widget(form.id_client, {'attr': {'class': 'form-control'}}) }}
-	      </div>
-	    </div>
+			    <div class="form-group">
+			      {{ form_label(form.id_client, "Client : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			      {{ form_errors(form.id_client) }}
+			      <div class="col-sm-4">
+			        {{ form_widget(form.id_client, {'attr': {'class': 'form-control'}}) }}
+			      </div>
+			    </div>
+			</div>
+		</div>  
 
-		<div id="backtable">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Position</th>
-						<th>Article</th>
-						<th>Désignation</th>
-						<th>Unité</th>
-						<th>Quantité</th>
-						<th>Prix Unitaire HT</th>
-						<th>Total HT</th>
-						<th>Souligné</th>
-						<th>Gras</th>
-						<th>Italique</th>
-						<th>Afficher Prix</th>
-						<th>Afficher Quantité</th>
-						<th>En-tête</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for ligne in form.lignes %}
-					  	<input type="hidden" id="client" />
-					    <tr class="ligne">
-						    <td>{{ form_widget(ligne.type, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.position, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.article, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.libelle, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.unite, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.quantite, {'attr': {'class': 'form-control'}}) }}</td>
-							<td>{{ form_widget(ligne.puHt, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.totalHt, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.souligne, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.gras, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.italique, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.affprix, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.affqte, {'attr': {'class': 'form-control'}}) }}</td>
-						    <td>{{ form_widget(ligne.idEntete, {'attr': {'class': 'form-control'}}) }}</td>
+		{# FORM LIGNES #}
+		<div id="formlignes">
+			<span>Contenu devis</span>
+			<div id="backtable">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Type</th>
+							<th>Position</th>
+							<th>Article</th>
+							<th>Désignation</th>
+							<th>Unité</th>
+							<th>Quantité</th>
+							<th>Prix Unitaire HT</th>
+							<th>Total HT</th>
+							<th>Souligné</th>
+							<th>Gras</th>
+							<th>Italique</th>
+							<th>Afficher Prix</th>
+							<th>Afficher Quantité</th>
+							<!--<th>En-tête</th>-->
 						</tr>
-			 		{% endfor %}
-			 	</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{% for ligne in form.lignes %}
+						  	<input type="hidden" id="client" />
+						    <tr class="ligne">
+							    <td style="width:8%;">{{ form_widget(ligne.type, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:2%;">{{ form_widget(ligne.position, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:5%;">{{ form_widget(ligne.article, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td>{{ form_widget(ligne.libelle, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:5%;">{{ form_widget(ligne.unite, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:5%;">{{ form_widget(ligne.quantite, {'attr': {'class': 'form-control'}}) }}</td>
+								<td style="width:6%;">{{ form_widget(ligne.puHt, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:6%;">{{ form_widget(ligne.totalHt, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:1%;">{{ form_widget(ligne.souligne, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:1%;">{{ form_widget(ligne.gras, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:1%;">{{ form_widget(ligne.italique, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:1%;">{{ form_widget(ligne.affprix, {'attr': {'class': 'form-control'}}) }}</td>
+							    <td style="width:1%;">{{ form_widget(ligne.affqte, {'attr': {'class': 'form-control'}}) }}</td>
+							    <!--<td style="width:8%;">{{ form_widget(ligne.idEntete, {'attr': {'class': 'form-control'}}) }}</td>-->
+							</tr>
+				 		{% endfor %}
+				 	</tbody>
+				</table>
+			</div>
 		</div>
-
 
 	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}

@@ -130,11 +130,23 @@ body{
 	background-color: rgb(45,43,43) !important;
 }
 
+/* Modification : Bootstrap */
+a:focus, a:hover {
+    color: #fff;
+}
+a {
+    color: #fff;
+}
+
+.dropdown-menu {
+	font-size: 20px;
+}
+
 /** FORMULAIRE **/
 #formulaire
 {
-    margin-left: 15%;
     margin-top: 3%;
+    width: 99%;
 }
 
 .table
@@ -156,14 +168,43 @@ th
 	background-color: #FF8C00; 
 }
 
-/* Modification : Bootstrap */
-a:focus, a:hover {
-    color: #fff;
-}
-a {
-    color: #fff;
+/* Formulaire devis */
+#formsocietesblock
+{
+	margin-left: 30%;
 }
 
-.dropdown-menu {
-	font-size: 20px;
+#formsocietesblock div
+{
+	width: 56%;
+}
+
+
+#formsocietes span
+{
+	margin-left: -77%;
+	font-size: 25px;
+}
+
+#formsocietes
+{
+
+}
+
+#formlignes span
+{
+	margin-left: -73%;
+	font-size: 25px;
+}
+
+#formlignes
+{
+	margin-top: 4%;
+}
+
+#backtable table
+{
+	width: 100%;
+	margin-top: 0 !important;
+	margin-left:0 !important;
 }
