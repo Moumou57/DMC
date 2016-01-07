@@ -12,6 +12,7 @@ use DMC\CrudBundle\Entity\Clients;
 use DMC\CrudBundle\Entity\Societes;
 
 use DMC\CrudBundle\Form\EnteteDevisType;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 class DevisController extends Controller
 {
@@ -23,64 +24,89 @@ class DevisController extends Controller
 	public function newAction(Request $request)
     {
     	$devis = new EnteteDevis();
-    	//$Lignes = array();
+
     	$lignes = new LignesDevis();
 
-    	$devis->getLignes()->add($lignes);
+    	$lignesTab = new ArrayCollection();
 
+    	if(!$devis->getLignes()->isEmpty())
+    	{
+	    	foreach ($devis->getLignes() as $ligne) 
+	    	{
+		        $lignesTab->add($ligne);
+		    }
+		}
+		else
+		{
+			$ligneNew = $devis->getLignes();
+			$ligneNew->add($lignes);
+			$lignesTab->add($lignes);
+		}
+    	
     	$repository = $this
 	  		->getDoctrine()
 		  	->getManager();
-/*
-		$listSocietes = $repository->getRepository('DMCCrudBundle:Societes')->findAll();
-		$listClients = $repository->getRepository('DMCCrudBundle:Clients')->findAll();
-*/		
 
 		$form = $this->createForm(new EnteteDevisType(), $devis);
+	
+		if($form->handleRequest($request)->isValid())
+		{
+			$em = $this->getDoctrine()->getManager();
 
+		    /** ENTETEDEVIS ENTITY **/
+			$client = $repository->getRepository('DMCCrudBundle:Clients')->find($devis->getIdClient());
 
-	    // On vérifie que les valeurs entrées sont correctes
-	    // (Nous verrons la validation des objets en détail dans le prochain chapitre)
-	    if ($form->handleRequest($request)->isValid()) {
-	      // On l'enregistre notre objet $client dans la base de données, par exemple
+			$societe = new Societes();
+			$societe = $repository->getRepository('DMCCrudBundle:Societes')->findOneById($devis->getIdSociete());
+			$date = new \Datetime();
 
-	      //$client = new Clients();
-	      $client = $repository->getRepository('DMCCrudBundle:Clients')->find($devis->getIdClient());
+			$devis->setNomclient($client->getNom());
+			$devis->setAdresseclient($client->getAdresse());
+			$devis->setVilleclient($client->getVille());
+			$devis->setCodepostalclient($client->getCodepostal());
+			$devis->setPaysclient($client->getPays());
+			$devis->setBoitepostaleclient($client->getBoitepostale());
+			//$devis->setIntituledevis('Test');
+			$devis->setDatecreation($date);
+			$devis->setDate($date);
+			$devis->setDateimpression($date);
+			$devis->setLieuimpression($societe->getVille());
+			$devis->setDeleted(false);
+			$devis->setIdClient($client);
+			$devis->setIdSociete($societe);
 
-	      $societe = new Societes();
-	      $societe = $repository->getRepository('DMCCrudBundle:Societes')->findOneById($devis->getIdSociete());
-	      $date = new \Datetime();
+		    // Validation du formulaire pour ENTETE
 
-	      $devis->setNomclient($client->getNom());
-	      $devis->setAdresseclient($client->getAdresse());
-	      $devis->setVilleclient($client->getVille());
-	      $devis->setCodepostalclient($client->getCodepostal());
-	      $devis->setPaysclient($client->getPays());
-	      $devis->setBoitepostaleclient($client->getBoitepostale());
-	      //$devis->setIntituledevis('Test');
-	      $devis->setDatecreation($date);
-	      $devis->setDate($date);
-	      //$devis->setDateimpression($date);
-	      //$devis->setLieuimpression($societe->getVille());
-	      $devis->setDeleted(false);
-	      $devis->setIdClient($client);
-	      $devis->setIdSociete($societe);
+	        // remove the relationship between the Ligne and the Entete
+	        foreach ($lignesTab as $ligne) 
+	        {
+	            if (true === $devis->getLignes()->contains($ligne)) 
+	            {
+	                // remove the Entete from the Ligne
+	                $ligne->setIdEntete($devis);
+	                $ligne->setPositionmaitre(0);
+	                $em->persist($ligne);
+	            }
+	        }
 
-	      $em = $this->getDoctrine()->getManager();
-	      $em->persist($devis);
-	      $em->flush();
+	        $em->persist($devis);
+	        $em->flush();
 
-	      $request->getSession()->getFlashBag()->add('notice', 'En-tête bien enregistrée.');
+	      	$request->getSession()->getFlashBag()->add('notice', 'Devis bien enregistré.');
 
-	      // On redirige vers la page de visualisation de l'annonce nouvellement créée
-	      return $this->redirect($this->generateUrl('dmc_devis_homepage', array('id' => $devis->getId())));
-	    }
+	      	// On redirige vers la page de visualisation de l'annonce nouvellement créée
+	     	return $this->redirect($this->generateUrl('dmc_devis_homepage', array('id' => $devis->getId())));
+	   	}
+	   	else
+	   	{
+	   		// Si on n'est pas en POST, alors on affiche le formulaire
+			// On passe la méthode createView() du formulaire à la vue
+		    // afin qu'elle puisse afficher le formulaire toute seule
+	        return $this->render('DMCDevisBundle:Devis:index.html.twig', array(
+		      'form' => $form->createView(),
+		    ));
+	   	}
 
-		// Si on n'est pas en POST, alors on affiche le formulaire
-		// On passe la méthode createView() du formulaire à la vue
-	    // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('DMCDevisBundle:Devis:index.html.twig', array(
-	      'form' => $form->createView(),
-	    ));
+		
     }    
 }

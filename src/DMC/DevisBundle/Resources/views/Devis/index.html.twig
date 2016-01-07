@@ -109,6 +109,13 @@
 							    <td style="width:1%;">{{ form_widget(ligne.affqte, {'attr': {'class': 'form-control'}}) }}</td>
 							    <!--<td style="width:8%;">{{ form_widget(ligne.idEntete, {'attr': {'class': 'form-control'}}) }}</td>-->
 							</tr>
+							<tr>
+								<td colspan=13>
+									<label>Ajouter une ligne</label>
+									{# href => {{ path('LignesDevisType_add') }} #}
+									<a href="#" id="ajout_ligne" class="btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+								</td>
+							</tr>
 				 		{% endfor %}
 				 	</tbody>
 				</table>
@@ -126,4 +133,12 @@
 	  {# Fermeture de la balise <form> du formulaire HTML #}
 	  {{ form_end(form) }}
     </div>
+
+    {# JAVASCRIPT #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+		
+		});
+	</script>
 {% endblock %}

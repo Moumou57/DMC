@@ -37,11 +37,11 @@ class LignesDevisType extends AbstractType
             ->add('quantite','number')
             ->add('puHt','number')
             ->add('totalHt','number')
-            ->add('souligne','checkbox')
-            ->add('gras','checkbox')
-            ->add('italique','checkbox')
-            ->add('affprix','checkbox')
-            ->add('affqte','checkbox')
+            ->add('souligne','checkbox', array('required' => false))
+            ->add('gras','checkbox', array('required' => false))
+            ->add('italique','checkbox', array('required' => false))
+            ->add('affprix','checkbox', array('required' => false))
+            ->add('affqte','checkbox', array('required' => false))
             ->add('idEntete','number')
         ;
     }

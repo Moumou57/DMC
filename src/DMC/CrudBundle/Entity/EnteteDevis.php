@@ -143,7 +143,7 @@ class EnteteDevis
 
     //------------------------------------------------------------------------------------------
     /**
-     * @ORM\OneToMany(targetEntity="LignesDevis", mappedBy="EnteteDevis")
+     * @ORM\OneToMany(targetEntity="LignesDevis", mappedBy="EnteteDevis", cascade={"persist"})
      */
     protected $lignes;
 
@@ -151,6 +151,27 @@ class EnteteDevis
         $this->lignes = new ArrayCollection();
     }
     //------------------------------------------------------------------------------------------
+
+    /**
+     * Add a lignesdevis
+     *
+     * @return void
+     */
+    public function addLigne(LignesDevis $ligne)
+    {
+        $this->lignes->add($ligne);
+    }
+
+    /**
+     * Remove a lignesdevis
+     *
+     * @return void
+     */
+    public function removeLigne(LignesDevis $ligne)
+    {
+        $this->lignes->removeElement($ligne);
+    }
+
 
     /**
      * Get id

@@ -197,6 +197,12 @@ th
 	font-size: 25px;
 }
 
+#formlignes .glyphicon
+{
+	margin-left: 0 !important;
+	font-size: 25px;
+}
+
 #formlignes
 {
 	margin-top: 4%;
