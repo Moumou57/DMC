@@ -4,6 +4,7 @@ namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use \Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 /**
  * Ressources
  *
@@ -59,24 +60,16 @@ class Ressources
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Ressources", inversedBy="idArticle")
-     * @ORM\JoinTable(name="composes_ressources",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_article", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_composant", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="Ressources", inversedBy="idArticle", cascade={"persist"})
      */
-    private $idComposant;
+    private $idArticle;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idComposant = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idArticle = new ArrayCollection();
     }
 
 
@@ -211,36 +204,36 @@ class Ressources
     }
 
     /**
-     * Add idComposant
+     * Add idArticle
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $idComposant
+     * @param \DMC\CrudBundle\Entity\Ressources $idArticle
      *
      * @return Ressources
      */
-    public function addIdComposant(\DMC\CrudBundle\Entity\Ressources $idComposant)
+    public function addIdArticle(\DMC\CrudBundle\Entity\Ressources $idArticle)
     {
-        $this->idComposant[] = $idComposant;
+        $this->idArticle[] = $idArticle;
 
         return $this;
     }
 
     /**
-     * Remove idComposant
+     * Remove idArticle
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $idComposant
+     * @param \DMC\CrudBundle\Entity\Ressources $idArticle
      */
-    public function removeIdComposant(\DMC\CrudBundle\Entity\Ressources $idComposant)
+    public function removeIdArticle(\DMC\CrudBundle\Entity\Ressources $idArticle)
     {
-        $this->idComposant->removeElement($idComposant);
+        $this->idArticle->removeElement($idArticle);
     }
 
     /**
-     * Get idComposant
+     * Get idArticle
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getIdComposant()
+    public function getIdArticle()
     {
-        return $this->idComposant;
+        return $this->idArticle;
     }
 }

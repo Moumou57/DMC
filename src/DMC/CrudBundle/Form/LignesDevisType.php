@@ -27,10 +27,13 @@ class LignesDevisType extends AbstractType
             ->add('libelle','text')
             ->add('unite','choice', array(
                 'choices' => array(
+                    '' => '',   // <null>
                     'm' => 'm',
                     'm²' => 'm2',
                     'm3' => 'm3',
-                    '' => '<null>',
+                    'to' => 'to', // Tonne(s)
+                    'u' => 'u',  // Unité(s)
+                    'h' => 'h',  // Heure(s)
                     ),
                 'choices_as_values' => true,
                 ))

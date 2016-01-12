@@ -15,18 +15,24 @@ class ComposesRessources
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_article", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_article", type="integer", nullable=false)
      */
     private $idArticle;
 
     /**
      * @var integer
      *
+     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="ComposesRessources", inversedBy="id", cascade={"persist"})
      * @ORM\Column(name="id_composant", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $idComposant;
 
@@ -37,7 +43,15 @@ class ComposesRessources
      */
     private $quantite;
 
-
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set idArticle
