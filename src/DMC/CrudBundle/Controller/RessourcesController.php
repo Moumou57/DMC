@@ -7,7 +7,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use DMC\CrudBundle\Entity\Ressources;
+use DMC\CrudBundle\Entity\ComposesRessources;
 
+use DMC\CrudBundle\Form\RessourcesType;
+use DMC\CrudBundle\Form\ComposesRessourcesType;
+use DMC\CrudBundle\Form\RessourcesFormType;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 class RessourcesController extends Controller
 {
@@ -18,18 +23,19 @@ class RessourcesController extends Controller
 
     public function viewAction()
     {
-        // On récupère la liste des 
         $repository = $this
             ->getDoctrine()
-            ->getManager()
-            ->getRepository('DMCCrudBundle:Ressources');
-            
+            ->getManager();
+        // On récupère la liste des 
+        $repoRessources = $repository->getRepository('DMCCrudBundle:Ressources');
+        $repoCompoRessources = $repository->getRepository('DMCCrudBundle:ComposesRessources');
+        $repoRessCompRessources = $repository->getRepository('DMCCrudBundle:Ressources');
 
-        $listRessources = $repository->findAll();
+        $listRessources = $repoRessources->findAll();
 
         return $this->render('DMCCrudBundle:Ressources:view.html.twig', array('ressources' => $listRessources, 'titre' => 'Ressources'));
     }
-
+/*
     public function insertAction(Request $request)
     {
     // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
@@ -84,6 +90,55 @@ class RessourcesController extends Controller
         return $this->render('DMCCrudBundle:Ressources:insert.html.twig', array(
           'form' => $form->createView(),
         ));
+    }
+*/
+    public function insertAction(Request $request)
+    {
+    // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+
+         // On crée un objet ressource
+        $ressource = new Ressources();
+        $ressource2 = new Ressources();
+        $ressourcesTab = new ArrayCollection();
+
+        $compoRessources = new ComposesRessources();
+        $compoRessourcesTab = new ArrayCollection();
+
+        // ---------------------------------------------------- Article ---> Composé
+        if(!$ressource->getIdArticle()->isEmpty())
+        {
+            foreach ($ressource->getIdArticle() as $compose) 
+            {
+                $compoRessourcesTab->add($compose);
+            }
+        }
+        else
+        {
+            $composeNew = $ressource->getIdArticle();
+            $composeNew->add($ressource2);
+            $ressourcesTab->add($ressource2);
+        }
+
+        //$compoRessources->setRessource($ressource2);
+
+        $form = $this->createForm(new RessourcesType(), $ressource);
+
+        if($form->handleRequest($request)->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($ressource);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Devis bien enregistré.');
+        }
+        else
+        {
+            return $this->render('DMCCrudBundle:Ressources:insert.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
+        
     }
 
     public function editAction($id, Request $request)

@@ -21,9 +21,9 @@ class RessourcesType extends AbstractType
             ->add('prix')
             ->add('estcompose')
             ->add('idArticle','collection',array(
-                'type' => new ComposesRessourcesType(),
+                'type' => new RessourcesFormType(),
                 'allow_delete' => true
-                )))
+                ))
         ;
     }
     

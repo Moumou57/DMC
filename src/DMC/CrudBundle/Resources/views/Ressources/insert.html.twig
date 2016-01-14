@@ -56,6 +56,48 @@
 	        {{ form_widget(form.estcompose, {'attr': {'class': 'form-control'}}) }}
 	      </div>
 	    </div>
+					{#{{ dump(form.idArticle.vars) }}#}
+	    {# FORM LIGNES #}
+		<div id="formlignes">
+			<span>Contenu Article</span>
+			<div id="backtable">
+				<table class="table">
+					<thead>
+						<tr>
+							<!--<th>N° Article</th>-->
+							<th>Libellé</th>
+							<th>Famille</th>
+							<th>Unité</th>
+							<th>Quantité</th>
+							<th>Prix</th>
+							<th>Composé</th>
+							<!--<th>En-tête</th>-->
+						</tr>
+					</thead>
+					<tbody>
+						{% for compose in form.idArticle %}
+							<input type="hidden" id="client" />
+							<tr class="ligne">
+									<td>{{ form_widget(compose.designation, {'attr': {'class': 'form-control'}}) }}</td>
+									<td style="width:8%;">{{ form_widget(compose.famille, {'attr': {'class': 'form-control'}}) }}</td>
+									<td style="width:5%;">{{ form_widget(compose.unite, {'attr': {'class': 'form-control'}}) }}</td>
+									<td style="width:5%;">{{ form_widget(compose.quantite, {'attr': {'class': 'form-control'}}) }}</td>
+								    <td style="width:6%;">{{ form_widget(compose.prix, {'attr': {'class': 'form-control'}}) }}</td>
+								    <td style="width:5%;">{{ form_widget(compose.estcompose, {'attr': {'class': 'form-control'}}) }}</td>
+								    {#<!--<td style="width:8%;">{{ form_widget(ligne.idEntete, {'attr': {'class': 'form-control'}}) }}</td>-->#}
+							</tr>
+							<tr>
+							<td colspan=13>
+								<label>Ajouter une ligne</label>
+								{# href => {{ path('LignesDevisType_add') }} #}
+								<a href="#" id="ajout_ligne" class="btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+							</td>
+							</tr>
+				 		{% endfor %}
+				 	</tbody>
+				</table>
+			</div>
+		</div>
 
 	  {# Génération du label + error + widget pour un champ #}
 	  {#{{ form_row(form.codepostal) }} #}

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RessourcesComposesRessourcesType extends AbstractType
+class RessourcesFormType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,12 @@ class RessourcesComposesRessourcesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('designation')
-            ->add('famille')
-            ->add('unite')
-            ->add('prix')
-            ->add('estcompose')
+            ->add('designation','text')
+            ->add('famille','integer') //Classification Ressources à mettre plus tard
+            ->add('unite','integer')
+            ->add('quantite','integer')
+            ->add('prix','integer')
+            ->add('estcompose','checkbox', array('required' => false))
         ;
     }
     
@@ -38,6 +39,6 @@ class RessourcesComposesRessourcesType extends AbstractType
      */
     public function getName()
     {
-        return 'dmc_crudbundle_ressources';
+        return 'dmc_crudbundle_ressources_form';
     }
 }

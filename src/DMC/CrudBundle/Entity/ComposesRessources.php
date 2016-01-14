@@ -31,7 +31,7 @@ class ComposesRessources
     /**
      * @var integer
      *
-     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="ComposesRessources", inversedBy="id", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="ComposesRessources", cascade={"persist"})
      * @ORM\Column(name="id_composant", type="integer", nullable=false)
      */
     private $idComposant;
@@ -42,6 +42,14 @@ class ComposesRessources
      * @ORM\Column(name="quantite", type="float", precision=10, scale=0, nullable=false)
      */
     private $quantite;
+
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="id", cascade={"persist"})
+     */
+    private $ressource;
 
     /**
      * Get id
@@ -123,5 +131,21 @@ class ComposesRessources
     public function getQuantite()
     {
         return $this->quantite;
+    }
+
+    public function setRessource($ressource)
+    {
+        $this->ressource = $ressource;
+        return $this;
+    }
+
+    /**
+     * Get ressource
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRessource()
+    {
+        return $this->ressource;
     }
 }

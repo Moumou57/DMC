@@ -16,11 +16,18 @@ class ComposesRessourcesType extends AbstractType
     {
         $builder
             ->add('idArticle','integer')
+            /*
+            ->add('idComposant','entity',array(
+                'class' => 'DMCCrudBundle:Ressources',
+                'choice_label' => 'designation'
+                ))
+            */
+            
             ->add('idComposant','collection',array(
                     'type' => new RessourcesFormType(),
                     'allow_delete' => true
                 ))
-            ->add('quantite')
+            ->add('quantite', 'integer')
         ;
     }
     

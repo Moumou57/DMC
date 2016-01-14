@@ -60,9 +60,17 @@ class Ressources
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="Ressources", inversedBy="idArticle", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="Ressources", cascade={"persist"})
      */
     private $idArticle;
+
+    /**
+     * @var integer
+     *
+     * No mapping in ORM
+     */
+    private $quantite;
+
 
     /**
      * Constructor
@@ -235,5 +243,29 @@ class Ressources
     public function getIdArticle()
     {
         return $this->idArticle;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return integer
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
     }
 }
