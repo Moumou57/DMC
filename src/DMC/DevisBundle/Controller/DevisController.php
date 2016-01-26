@@ -83,11 +83,25 @@ class DevisController extends Controller
 	            if (true === $devis->getLignes()->contains($ligne)) 
 	            {
 	                // remove the Entete from the Ligne
+	                /*
+	                $newLigne = new LignesDevis();
+	                $newLigne->setType(ligne->getType);
+	                $newLigne->setPositionmaitre();
+	                $newLigne->setPosition();
+	                $newLigne->setPosition();
+	                $newLigne->setPosition();
+	                $newLigne->setPosition();
+	                $newLigne->setPosition();
+	                $em->flush();
+					*/
+
 	                $ligne->setIdEntete($devis);
 	                $ligne->setPositionmaitre(0);
 	                $em->persist($ligne);
+	                //$em->flush();
 	            }
 	        }
+
 
 	        $em->persist($devis);
 	        $em->flush();

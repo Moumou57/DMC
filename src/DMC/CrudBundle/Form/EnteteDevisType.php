@@ -28,6 +28,7 @@ class EnteteDevisType extends AbstractType
                 ))
             ->add('lignes','collection',array(
                 'type' => new LignesDevisType(),
+                'allow_add'    => true,
                 'allow_delete' => true
                 ))
             ->add('save', 'submit')

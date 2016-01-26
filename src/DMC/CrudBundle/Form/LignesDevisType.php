@@ -22,6 +22,7 @@ class LignesDevisType extends AbstractType
                     ),
                 'choices_as_values' => true,
                 ))
+            ->add('positionmaitre','number')
             ->add('position','number')
             ->add('article','text')
             ->add('libelle','text')
