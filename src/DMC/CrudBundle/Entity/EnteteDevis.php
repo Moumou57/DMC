@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
  * EnteteDevis
  *
  * @ORM\Table(name="entete_devis", uniqueConstraints={@ORM\UniqueConstraint(name="U_id_societe", columns={"id_societe", "num_devis", "version"})}, indexes={@ORM\Index(name="numcommande", columns={"num_devis"}), @ORM\Index(name="version", columns={"version"}), @ORM\Index(name="id_client", columns={"id_client"}), @ORM\Index(name="id_societe", columns={"id_societe"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DMC\CrudBundle\Entity\EnteteDevisRepository")
  */
 class EnteteDevis
 {

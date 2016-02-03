@@ -19,14 +19,15 @@ class EnteteDevisType extends AbstractType
                 'class' => 'DMCCrudBundle:Societes',
                 'choice_label' => 'nomsociete'
                 ))
-            ->add('num_devis', 'text', array('required' => false))
-            ->add('version', 'text', array('required' => false))
+            //->add('num_devis', 'text', array('required' => false))
+            //->add('version', 'text', array('required' => false))
             ->add('intitule_devis','text')
             ->add('id_client', 'entity',array(
                 'class' => 'DMCCrudBundle:Clients',
                 'choice_label' => 'nom'
                 ))
             ->add('lignes','collection',array(
+                'required' => false,
                 'type' => new LignesDevisType(),
                 'allow_add'    => true,
                 'allow_delete' => true

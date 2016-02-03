@@ -33,4 +33,16 @@ class EnteteDevisRepository extends EntityRepository
     // On retourne ces résultats
     return $results;
   }
+
+  public function getLastNumDevis($societe){
+    
+    $query = $this->_em
+            ->createQuery('SELECT a.numDevis 
+                            FROM DMCCrudBundle:EnteteDevis a 
+                            WHERE a.idSociete = :societe
+                            ORDER BY a.numDevis DESC')
+            ->setParameter('societe', $societe)
+            ->setMaxResults(1);
+    return $query->getOneOrNullResult();
+  }
 }

@@ -13,11 +13,11 @@ $(document).ready(function() {
 
     // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
     var index = $container.find('td').length;
-
+    //console.log('Index : ' & index);
     // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
     if (index == 0) {
-    	//addLigne($container);
-    	addDeleteLink($('.ligne'));
+    	addLigne($container);
+    	//addDeleteLink($('.ligne'));
     	
     } else {
       // Pour chaque catégorie déjà existante, on ajoute un lien de suppression

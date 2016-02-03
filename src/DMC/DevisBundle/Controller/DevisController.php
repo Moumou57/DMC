@@ -17,35 +17,38 @@ use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 class DevisController extends Controller
 {
 	public function indexAction()
-    {
-        return $this->render('DMCDevisBundle:Default:index.html.twig');
-    }
+	{
+		return $this->render('DMCDevisBundle:Default:index.html.twig');
+	}
 
 	public function newAction(Request $request)
-    {
-    	$devis = new EnteteDevis();
+	{
+		$repository = $this
+	  		->getDoctrine()
+		  	->getManager();
+		
 
-    	$lignes = new LignesDevis();
+		$devis = new EnteteDevis();
 
-    	$lignesTab = new ArrayCollection();
-
-    	if(!$devis->getLignes()->isEmpty())
-    	{
-	    	foreach ($devis->getLignes() as $ligne) 
-	    	{
-		        $lignesTab->add($ligne);
-		    }
-		}
+		$lignes = new LignesDevis();
+		
+		$lignesTab = new ArrayCollection();
+		
+		if(!$devis->getLignes()->isEmpty())
+		{
+			foreach ($devis->getLignes() as $ligne) 
+			{
+				$lignesTab->add($ligne);
+			}
+		}/*
 		else
 		{
 			$ligneNew = $devis->getLignes();
 			$ligneNew->add($lignes);
 			$lignesTab->add($lignes);
 		}
-    	
-    	$repository = $this
-	  		->getDoctrine()
-		  	->getManager();
+		*/
+		
 
 		$form = $this->createForm(new EnteteDevisType(), $devis);
 	
@@ -53,12 +56,19 @@ class DevisController extends Controller
 		{
 			$em = $this->getDoctrine()->getManager();
 
-		    /** ENTETEDEVIS ENTITY **/
-			$client = $repository->getRepository('DMCCrudBundle:Clients')->find($devis->getIdClient());
+			/** ENTETEDEVIS ENTITY **/
+			$client = $devis->getIdClient();
 
 			$societe = new Societes();
-			$societe = $repository->getRepository('DMCCrudBundle:Societes')->findOneById($devis->getIdSociete());
+			$societe = $devis->getIdSociete();
+
 			$date = new \Datetime();
+
+			$devisNum = $repository->getRepository('DMCCrudBundle:EnteteDevis')->getLastNumDevis($societe);			// return array[id]
+			$devisNum = $devisNum['numDevis'] + 1;
+
+			$devis->setNumDevis($devisNum);
+			$devis->setVersion(1);
 
 			$devis->setNomclient($client->getNom());
 			$devis->setAdresseclient($client->getAdresse());
@@ -74,53 +84,34 @@ class DevisController extends Controller
 			$devis->setDeleted(false);
 			$devis->setIdClient($client);
 			$devis->setIdSociete($societe);
+			//$devis->setNumDevis($numDevis);
+			// Validation du formulaire pour ENTETE
+			
+			// remove the relationship between the Ligne and the Entete
+			//$lignes
+			foreach ($devis->getLignes() as $line) 
+			{
+				$line->setIdEntete($devis);
+			}
 
-		    // Validation du formulaire pour ENTETE
+			$em->persist($devis);
+			$em->flush();
 
-	        // remove the relationship between the Ligne and the Entete
-	        foreach ($lignesTab as $ligne) 
-	        {
-	            if (true === $devis->getLignes()->contains($ligne)) 
-	            {
-	                // remove the Entete from the Ligne
-	                /*
-	                $newLigne = new LignesDevis();
-	                $newLigne->setType(ligne->getType);
-	                $newLigne->setPositionmaitre();
-	                $newLigne->setPosition();
-	                $newLigne->setPosition();
-	                $newLigne->setPosition();
-	                $newLigne->setPosition();
-	                $newLigne->setPosition();
-	                $em->flush();
-					*/
+		  	$request->getSession()->getFlashBag()->add('notice', 'Devis bien enregistré.');
 
-	                $ligne->setIdEntete($devis);
-	                $ligne->setPositionmaitre(0);
-	                $em->persist($ligne);
-	                //$em->flush();
-	            }
-	        }
-
-
-	        $em->persist($devis);
-	        $em->flush();
-
-	      	$request->getSession()->getFlashBag()->add('notice', 'Devis bien enregistré.');
-
-	      	// On redirige vers la page de visualisation de l'annonce nouvellement créée
-	     	return $this->redirect($this->generateUrl('dmc_devis_homepage', array('id' => $devis->getId())));
+		  	// On redirige vers la page de visualisation de l'annonce nouvellement créée
+		 	return $this->redirect($this->generateUrl('dmc_devis_homepage', array('id' => $devis->getId())));
 	   	}
 	   	else
 	   	{
 	   		// Si on n'est pas en POST, alors on affiche le formulaire
 			// On passe la méthode createView() du formulaire à la vue
-		    // afin qu'elle puisse afficher le formulaire toute seule
-	        return $this->render('DMCDevisBundle:Devis:index.html.twig', array(
-		      'form' => $form->createView(),
-		    ));
+			// afin qu'elle puisse afficher le formulaire toute seule
+			return $this->render('DMCDevisBundle:Devis:index.html.twig', array(
+			  'form' => $form->createView(),
+			));
 	   	}
 
 		
-    }    
+	}	
 }
