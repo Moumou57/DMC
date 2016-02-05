@@ -11,10 +11,10 @@ class EnteteDevisRepository extends EntityRepository
   public function findAll()
   {
     // Méthode 1 : en passant par l'EntityManager
-    $queryBuilder = $this->_em->createQueryBuilder()
+    /*$queryBuilder = $this->_em->createQueryBuilder()
       ->select('a')
       ->from($this->_entityName, 'a')
-    ;
+    ;*/
     // Dans un repository, $this->_entityName est le namespace de l'entité gérée
     // Ici, il vaut donc OC\PlatformBundle\Entity\Advert
 

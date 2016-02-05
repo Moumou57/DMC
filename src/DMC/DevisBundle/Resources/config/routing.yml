@@ -4,7 +4,9 @@ dmc_devis_homepage:
 
 ###########################
 # Devis
-
+dmc_devis_view:
+    path:     /devis/historique
+    defaults: { _controller: DMCDevisBundle:Devis:view }
 dmc_devis_new:
     path:     /devis/new
     defaults: { _controller: DMCDevisBundle:Devis:new }
@@ -17,3 +19,8 @@ dmc_historique_devis:
     path:     /devis/historique
     defaults: { _controller: DMCDevisBundle:Default:historique }
 
+###########################
+# Ligne Devis
+dmc_devis_viewDetail:
+    path:     /devis/viewDetail/{enteteDevisId}
+    defaults: { _controller: DMCDevisBundle:Devis:viewDetail }
