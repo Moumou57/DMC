@@ -215,6 +215,12 @@ th
 	margin-left:0 !important;
 }
 
-.hidden{
+.hidden
+{
 	visibility: hidden;
+}
+
+a:hover 
+{ 
+	color:#FFFFFF !important;
 }

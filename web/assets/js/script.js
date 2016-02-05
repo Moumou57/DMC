@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  // Par défaut on cache la ligneComposee
+  $('.ressourceForm').hide();
+
 	// On récupère la balise tr en question qui contient l'attribut « data-prototype » qui nous intéresse.
     var $container = $('div#collectionContainer'); //div#collectionContainer
     var $table = $('table.table');
@@ -65,5 +68,21 @@ $(document).ready(function() {
     function majPositions($table){
     	var lastRow = $table.rows[ table.rows.length - 1 ];
     }
+
+    // Display ou non ligneComposee si case cochée "estComposé"
+      // Si cochée, on display la ligneComposee
+    $( "#dmc_crudbundle_ressources_estcompose" ).on( "click", function(){
+        if( $('#dmc_crudbundle_ressources_estcompose').is(':checked'))
+        {
+          $('.ressourceForm').show();
+        }
+        else
+        {
+          // Sinon on la cache
+          $('.ressourceForm').hide();
+        }
+
+    } );
+
 
 });

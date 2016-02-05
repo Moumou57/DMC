@@ -15,14 +15,26 @@ class RessourcesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('designation')
+            ->add('designation','text')
             ->add('famille')
-            ->add('unite')
-            ->add('prix')
-            ->add('estcompose')
-            ->add('idArticle','collection',array(
+            ->add('unite','choice', array(
+                'choices' => array(
+                    '' => '',   // <null>
+                    'm' => 'm',
+                    'm²' => 'm2',
+                    'm3' => 'm3',
+                    'to' => 'to', // Tonne(s)
+                    'u' => 'u',  // Unité(s)
+                    'h' => 'h',  // Heure(s)
+                    ),
+                'choices_as_values' => true,
+                ))
+            ->add('prix', 'integer')
+            ->add('estcompose','checkbox', array('required' => false))
+            ->add('lignesComposees','collection',array(
                 'type' => new RessourcesFormType(),
-                'allow_delete' => true
+                'allow_delete' => true,
+                'allow_add'    => true
                 ))
         ;
     }

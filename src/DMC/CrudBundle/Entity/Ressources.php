@@ -62,7 +62,7 @@ class Ressources
      *
      * @ORM\OneToMany(targetEntity="Ressources", mappedBy="Ressources", cascade={"persist"})
      */
-    private $idArticle;
+    private $lignesComposees;
 
     /**
      * @var integer
@@ -77,7 +77,7 @@ class Ressources
      */
     public function __construct()
     {
-        $this->idArticle = new ArrayCollection();
+        $this->lignesComposees = new ArrayCollection();
     }
 
 
@@ -212,37 +212,37 @@ class Ressources
     }
 
     /**
-     * Add idArticle
+     * Add lignesComposees
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $idArticle
+     * @param \DMC\CrudBundle\Entity\Ressources $lignesComposees
      *
      * @return Ressources
      */
-    public function addIdArticle(\DMC\CrudBundle\Entity\Ressources $idArticle)
+    public function addLignesComposees(\DMC\CrudBundle\Entity\Ressources $lignesComposees)
     {
-        $this->idArticle[] = $idArticle;
+        $this->lignesComposees[] = $lignesComposees;
 
         return $this;
     }
 
     /**
-     * Remove idArticle
+     * Remove lignesComposees
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $idArticle
+     * @param \DMC\CrudBundle\Entity\Ressources $lignesComposees
      */
-    public function removeIdArticle(\DMC\CrudBundle\Entity\Ressources $idArticle)
+    public function removeLignesComposees(\DMC\CrudBundle\Entity\Ressources $lignesComposees)
     {
-        $this->idArticle->removeElement($idArticle);
+        $this->lignesComposees->removeElement($lignesComposees);
     }
 
     /**
-     * Get idArticle
+     * Get lignesComposees
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getIdArticle()
+    public function getLignesComposees()
     {
-        return $this->idArticle;
+        return $this->lignesComposees;
     }
 
     /**
