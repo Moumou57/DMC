@@ -50,10 +50,13 @@ class SocietesController extends Controller
 	    	->add('bcee', 'text')
 	    	->add('adresse', 'text')
 	    	->add('boitepostale', 'text')
+	    	->add('codepostal','text')
+	    	->add('ville','text')
 	    	->add('telephone', 'text')
 	    	->add('fax', 'text')
 	    	->add('siteweb', 'text')
 	    	->add('email', 'email')
+	    	->add('imagepath','text')
 	    	->add('save', 'submit')
 	    	->getForm();
 

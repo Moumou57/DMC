@@ -3,7 +3,7 @@
 {% block Navigation %}
 
 			<li ><a href="{{ path ('dmc_devis_homepage') }}">Home</a></li>
-			<li class="active" ><a href="{{ path ('dmc_crud_homepage') }}">Gestion DMC</a></li>
+			<li ><a href="{{ path ('dmc_crud_homepage') }}">Gestion DMC</a></li>
 
 			{# Classification Article #}
 			<li class="dropdown">
@@ -17,7 +17,7 @@
 			</li>
 
 			{# Article #}
-			<li class="dropdown">
+			<li class="active dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"> Article <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Achats</a></li>
@@ -50,33 +50,4 @@
 					<li><a href="#">Supprimer</a></li> 
 				</ul>
 			</li>
-{% endblock %}
-
-{% block Header %}
-	<h1>Gestion de la Base de données</h1>
-{% endblock %}
-
-{% block Application %}
-	<div><span> Bienvenue dans la base de données <br/> Attention lorsque vous faites des modifications </span></div>
-
-	<div id="application33">
-		<div>
-			<a href="{{ path ('dmc_crud_section_article') }}">
-				<img src="{{ asset('assets/images/articles.png') }}" alt="Articles" />
-				<span id="articles">Articles</span>
-			</a>
-		</div>
-		<div>
-			<a href="{{ path ('dmc_crud_clients_view') }}">
-				<img src="{{ asset('assets/images/clients.png') }}" alt="Clients" />
-				<span id="clients">Clients</span>
-			</a>
-		</div>
-		<div>
-			<a href="{{ path ('dmc_crud_societes_view') }}">
-				<img src="{{ asset('assets/images/societe.png') }}" alt="Soc" />
-				<span id="societes">Société</span>
-			</a>
-		</div>
-	</div>
 {% endblock %}

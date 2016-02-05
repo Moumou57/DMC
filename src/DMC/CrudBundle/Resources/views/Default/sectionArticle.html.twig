@@ -1,62 +1,5 @@
-{% extends 'base.html.twig' %}
+{% extends 'DMCCrudBundle:navBar:navBarArticle.html.twig' %}
 
-{% block Navigation %}
-
-			<li ><a href="{{ path ('dmc_devis_homepage') }}">Home</a></li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}">Gestion DMC <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Ressources / Articles</a></li>
-					<li><a href="#">Clients</a></li>
-					<li><a href="#">Sociétés</a></li> 
-				</ul>
-			</li>
-
-			{# Classification Article #}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Classification Article <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Afficher</a></li>
-					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Ajouter</a></li>
-					<li><a href="#">Modifier</a></li> 
-					<li><a href="#">Supprimer</a></li> 
-				</ul>
-			</li>
-
-			{# Article #}
-			<li class="dropdown active">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Article <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Achats</a></li>
-					<li><a href="{{ path ('dmc_crud_ressources_view') }}">Composés</a></li>
-					<li><a href="{{ path ('dmc_crud_ressources_insert') }}">Ajouter Article</a></li>
-					<li><a href="#">Modifier</a></li> 
-					<li><a href="#">Supprimer</a></li> 
-				</ul>
-			</li>
-
-			{# Clients #}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Clients <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{ path ('dmc_crud_clients_view') }}">Afficher</a></li>
-					<li><a href="{{ path ('dmc_crud_clients_insert') }}">Ajouter</a></li>
-					<li><a href="#">Modifier</a></li> 
-					<li><a href="#">Supprimer</a></li> 
-				</ul>
-			</li>
-
-			{# Société #}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ path ('dmc_crud_homepage') }}"> Sociétés <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="{{ path ('dmc_crud_societes_view') }}">Afficher</a></li>
-					<li><a href="{{ path ('dmc_crud_societes_insert') }}">Ajouter</a></li>
-					<li><a href="#">Modifier</a></li> 
-					<li><a href="#">Supprimer</a></li> 
-				</ul>
-			</li>
-{% endblock %}
 
 {% block Header %}
 	<h1>Gestion de la Base de données</h1>
@@ -86,7 +29,7 @@
 		</div>
 		<div>
 			<a href="{{ path ('dmc_crud_classificationsRessources_view') }}">
-				<img src="{{ asset('assets/images/tree_view.png') }}"" alt="class_articles" />
+				<img src="{{ asset('assets/images/tree_view.png') }}" alt="class_articles" />
 				<span id="famille">Famille</span>
 			</a>
 		</div>

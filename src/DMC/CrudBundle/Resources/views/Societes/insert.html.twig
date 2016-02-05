@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'DMCCrudBundle:navBar:navBarSociete.html.twig' %}
 
 {% block Header %}
 	<h1>Ajouter une société</h1>
@@ -66,6 +66,14 @@
 	    </div>
 
 	    <div class="form-group">
+	      {{ form_label(form.boitepostale, "Boite postale : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.boitepostale) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.boitepostale, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
 	      {{ form_label(form.adresse, "Adresse : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
 	      {{ form_errors(form.adresse) }}
 	      <div class="col-sm-4">
@@ -74,10 +82,18 @@
 	    </div>
 
 	    <div class="form-group">
-	      {{ form_label(form.boitepostale, "Boite postale : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.boitepostale) }}
+	      {{ form_label(form.codepostal, "Code Postal : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.codepostal) }}
 	      <div class="col-sm-4">
-	        {{ form_widget(form.boitepostale, {'attr': {'class': 'form-control'}}) }}
+	        {{ form_widget(form.codepostal, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.ville, "Ville : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.ville) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
 	      </div>
 	    </div>
 
@@ -107,9 +123,17 @@
 
 	    <div class="form-group">
 	      {{ form_label(form.email, "E-mail : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.telephone) }}
+	      {{ form_errors(form.email) }}
 	      <div class="col-sm-4">
 	        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      {{ form_label(form.imagepath, "Adresse du Logo Société : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.imagepath) }}
+	      <div class="col-sm-4">
+	        {{ form_widget(form.imagepath, {'attr': {'class': 'form-control'}}) }}
 	      </div>
 	    </div>
 
