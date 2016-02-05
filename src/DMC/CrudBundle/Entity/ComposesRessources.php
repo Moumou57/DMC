@@ -45,13 +45,6 @@ class ComposesRessources
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="id", cascade={"persist"})
-     */
-    private $ressource;
-
-    /**
      * Get id
      *
      * @return integer
@@ -133,19 +126,4 @@ class ComposesRessources
         return $this->quantite;
     }
 
-    public function setRessource($ressource)
-    {
-        $this->ressource = $ressource;
-        return $this;
-    }
-
-    /**
-     * Get ressource
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRessource()
-    {
-        return $this->ressource;
-    }
 }

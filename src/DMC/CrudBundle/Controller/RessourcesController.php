@@ -105,16 +105,16 @@ class RessourcesController extends Controller
         $compoRessourcesTab = new ArrayCollection();
 
         // ---------------------------------------------------- Article ---> Composé
-        if(!$ressource->getIdArticle()->isEmpty())
+        if(!$ressource->getLignesComposees()->isEmpty())
         {
-            foreach ($ressource->getIdArticle() as $compose) 
+            foreach ($ressource->getLignesComposees() as $compose) 
             {
                 $compoRessourcesTab->add($compose);
             }
         }
         else
         {
-            $composeNew = $ressource->getIdArticle();
+            $composeNew = $ressource->getLignesComposees();
             $composeNew->add($ressource2);
             $ressourcesTab->add($ressource2);
         }
