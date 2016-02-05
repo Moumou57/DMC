@@ -60,7 +60,7 @@ class Ressources
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Ressources", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="Ressources", cascade={"persist"})
      */
     private $lignesComposees;
 

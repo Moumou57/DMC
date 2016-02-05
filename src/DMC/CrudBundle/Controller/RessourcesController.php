@@ -112,14 +112,6 @@ class RessourcesController extends Controller
                 $compoRessourcesTab->add($compose);
             }
         }
-        else
-        {
-            $composeNew = $ressource->getLignesComposees();
-            $composeNew->add($ressource2);
-            $ressourcesTab->add($ressource2);
-        }
-
-        //$compoRessources->setRessource($ressource2);
 
         $form = $this->createForm(new RessourcesType(), $ressource);
 
@@ -130,7 +122,16 @@ class RessourcesController extends Controller
             $em->persist($ressource);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Devis bien enregistré.');
+            $request->getSession()->getFlashBag()->add('notice', 'Article bien enregistré.');
+
+            if ($this->getRequest()->request->get('submitAction') == 'save')
+            {
+                return $this->redirect($this->generateUrl('dmc_crud_ressources_view', array('id' => $ressource->getId())));
+            }
+            elseif ($this->getRequest()->request->get('submitAction') == 'saveandadd')
+            {
+                return $this->redirect($this->generateUrl('dmc_crud_ressources_insert'));
+            }
         }
         else
         {
