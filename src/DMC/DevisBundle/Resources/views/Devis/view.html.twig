@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block Header %}
+	<h1>Historique des devis</h1>
+{% endblock %}
+
+{% block Application %}
+	{# Messages notif #}
+	{%  for flashMessage in app.session.flashbag.get('notice')  %}
+		<div class="success alert-success" role="alert">
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
+
+	<div id="backtable">
+		<table class="table">
+			<thead>
+				<tr>
+                    <th>Intitulé devis</th>
+					<th>Société</th>
+					<th>Numéro devis</th>
+					<th>Version</th>
+					<th>Client</th>
+					<th>Adresse client</th>
+					<th>Pays client</th>
+                    <th>Boite postale client</th>
+                    <th>Date de création</th>
+				</tr>
+			</thead>
+			<tbody>
+			  	{% for dev in devis %}
+                <tr class="ligne">
+                    <input type="hidden" id="devis" value={{ dev.id }} />
+                    <td><a href="{{'viewDetail/' ~ dev.id }}">{{ dev.intituledevis }}</a></td>
+                    <td>{{ dev.idSociete.nomsociete }}</td>
+                    <td>{{ dev.numDevis }}</td>
+                    <td>{{ dev.version }}</td>
+                    <td>{{ dev.nomclient }}</td>
+                    <td>{{ dev.adresseclient }} <br/> {{ dev.codepostalclient ~ ' ' ~ dev.villeclient }}</td>
+                    <td>{{ dev.paysclient }}</td>
+                    <td>{{ dev.boitepostaleclient }}</td>
+                    <td>{{ dev.datecreation|date('d/m/Y') }}</td>
+                </tr>
+		 		{% endfor %}
+		 	</tbody>
+		</table>
+	</div>
+{% endblock %}

@@ -20,6 +20,38 @@ class DevisController extends Controller
 	{
 		return $this->render('DMCDevisBundle:Default:index.html.twig');
 	}
+    
+    public function viewAction()
+    {
+    	// On récupère la liste des devis
+		$repository = $this
+	  		->getDoctrine()
+		  	->getManager()
+		  	->getRepository('DMCCrudBundle:EnteteDevis');
+			
+		$listDevis = $repository->findAll();
+        
+	    return $this->render('DMCDevisBundle:Devis:view.html.twig', array('devis' => $listDevis));
+    }
+    
+    public function viewDetailAction($enteteDevisId)
+    {
+    	$repositoryLignes = $this
+	  		->getDoctrine()
+		  	->getManager()
+		  	->getRepository('DMCCrudBundle:LignesDevis');
+       
+        $listDetailDevis = $repositoryLignes->findByEnteteDevisId($enteteDevisId);
+        
+        $repositoryEntete = $this
+	  		->getDoctrine()
+		  	->getManager()
+		  	->getRepository('DMCCrudBundle:EnteteDevis');
+        
+        $enteteDevis = $repositoryEntete->find($enteteDevisId);
+
+	    return $this->render('DMCDevisBundle:Devis:viewDetail.html.twig', array('detailDevis' => $listDetailDevis, 'enteteDevis' => $enteteDevis));
+    }
 
 	public function newAction(Request $request)
 	{
