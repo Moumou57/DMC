@@ -22,16 +22,17 @@ class ComposesRessources
     private $id;
 
     /**
-     * @var integer
+     * @var \Ressources
      *
+     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="lignesArticles")
      * @ORM\Column(name="id_article", type="integer", nullable=false)
      */
     private $idArticle;
 
     /**
-     * @var integer
+     * @var \Ressources
      *
-     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="ComposesRessources", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="id")
      * @ORM\Column(name="id_composant", type="integer", nullable=false)
      */
     private $idComposant;
@@ -57,7 +58,7 @@ class ComposesRessources
     /**
      * Set idArticle
      *
-     * @param integer $idArticle
+     * @param \DMC\CrudBundle\Entity\Ressources $idArticle
      *
      * @return ComposesRessources
      */
@@ -71,7 +72,7 @@ class ComposesRessources
     /**
      * Get idArticle
      *
-     * @return integer
+     * @return \DMC\CrudBundle\Entity\Ressources
      */
     public function getIdArticle()
     {
@@ -81,7 +82,7 @@ class ComposesRessources
     /**
      * Set idComposant
      *
-     * @param integer $idComposant
+     * @param \DMC\CrudBundle\Entity\Ressources $idComposant
      *
      * @return ComposesRessources
      */
@@ -95,7 +96,7 @@ class ComposesRessources
     /**
      * Get idComposant
      *
-     * @return integer
+     * @return \DMC\CrudBundle\Entity\Ressources
      */
     public function getIdComposant()
     {

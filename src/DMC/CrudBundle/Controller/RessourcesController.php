@@ -105,9 +105,9 @@ class RessourcesController extends Controller
         $compoRessourcesTab = new ArrayCollection();
 
         // ---------------------------------------------------- Article ---> Composé
-        if(!$ressource->getLignesComposees()->isEmpty())
+        if(!$ressource->getLignesArticles()->isEmpty())
         {
-            foreach ($ressource->getLignesComposees() as $compose) 
+            foreach ($ressource->getLignesArticles() as $compose) 
             {
                 $compoRessourcesTab->add($compose);
             }
@@ -118,6 +118,19 @@ class RessourcesController extends Controller
         if($form->handleRequest($request)->isValid())
         {
             $em = $this->getDoctrine()->getManager();
+
+            foreach($ressource->getLignesArticles() as $ligne)
+            {
+                $ligne->setIdArticle($ressource);
+                
+                    var_dump($ligne);
+                    exit;
+                /**/
+            }
+
+            //echo '<pre>' . print_r($ressource->getLignesArticles()[1]) . '</pre>';
+
+
 
             $em->persist($ressource);
             $em->flush();

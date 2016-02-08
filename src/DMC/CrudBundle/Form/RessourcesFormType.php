@@ -15,7 +15,10 @@ class RessourcesFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('designation','text')
+            ->add('designation','entity',array(
+                'class' => 'DMCCrudBundle:Ressources',
+                'choice_label' => 'designation'
+            ))
             ->add('famille','integer') //Classification Ressources à mettre plus tard
             ->add('unite','choice', array(
                 'choices' => array(
@@ -29,7 +32,7 @@ class RessourcesFormType extends AbstractType
                     ),
                 'choices_as_values' => true,
                 ))
-            ->add('quantite','integer')
+            //->add('quantite','integer')
             ->add('prix','integer')
             //->add('estcompose','checkbox', array('required' => false))
         ;

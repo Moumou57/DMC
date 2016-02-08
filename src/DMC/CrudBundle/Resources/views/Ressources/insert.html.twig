@@ -65,9 +65,9 @@
 					<thead>
 						<tr>
 							<!--<th>N° Article</th>-->
-							<th>Famille</th>
 							<th>Libellé</th>
-							<th>Unité</th>
+							<th>Quantité</th>
+							<!--<th>Unité</th>
 							<th>Quantité</th>
 							<th>Prix</th>
 							<!--<th>Composé</th>-->
@@ -79,7 +79,7 @@
 						<div id="collectionContainer"
 							data-prototype="
 								{% filter escape %}
-									{{ include('DMCCrudBundle:DataPrototype:lignesComposeesPrototype.html.twig', { 'compose': form.lignesComposees.vars.prototype }) }}
+									{{ include('DMCCrudBundle:DataPrototype:lignesArticlesPrototype.html.twig', { 'ligne': form.lignesArticles.vars.prototype }) }}
 								{% endfilter %}">
 						</div>
 				 	</tbody>
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 		<div>
-			{{ form_widget(form.lignesComposees, {'attr': {'class': 'hidden'}}) }}
+			{{ form_widget(form.lignesArticles, {'attr': {'class': 'hidden'}}) }}
 		</div>
 
 	  {# Génération du label + error + widget pour un champ #}

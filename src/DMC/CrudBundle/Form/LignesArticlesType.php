@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ComposesRessourcesType extends AbstractType
+class LignesArticlesType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -23,10 +23,11 @@ class ComposesRessourcesType extends AbstractType
                 ))
             */
             
-            ->add('idComposant','collection',array(
-                    'type' => new RessourcesFormType(),
-                    'allow_delete' => true
-                ))
+            ->add('idComposant', //'collection',array(
+                    //'type' => 
+                    new RessourcesFormType()//,
+                    //'allow_delete' => true
+                )//)
             ->add('quantite', 'integer')
         ;
     }

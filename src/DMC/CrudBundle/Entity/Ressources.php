@@ -60,24 +60,16 @@ class Ressources
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Ressources", mappedBy="Ressources", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="id_article", cascade={"persist"})
      */
-    private $lignesComposees;
-
-    /**
-     * @var integer
-     *
-     * No mapping in ORM
-     */
-    private $quantite;
-
+    private $lignesArticles;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->lignesComposees = new ArrayCollection();
+        $this->lignesArticles = new ArrayCollection();
     }
 
 
@@ -212,60 +204,38 @@ class Ressources
     }
 
     /**
-     * Add lignesComposees
+     * Add lignesArticles
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $lignesComposees
+     * @param \DMC\CrudBundle\Entity\ComposesRessources $lignesArticles
      *
      * @return Ressources
      */
-    public function addLignesComposees(\DMC\CrudBundle\Entity\Ressources $lignesComposees)
+    public function addLignesArticles(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticles)
     {
-        $this->lignesComposees[] = $lignesComposees;
+        $this->lignesArticles[] = $lignesArticles;
+
+        $lignesArticles->setIdArticle($this);
 
         return $this;
     }
 
     /**
-     * Remove lignesComposees
+     * Remove lignesArticles
      *
-     * @param \DMC\CrudBundle\Entity\Ressources $lignesComposees
+     * @param \DMC\CrudBundle\Entity\ComposesRessources $lignesArticles
      */
-    public function removeLignesComposees(\DMC\CrudBundle\Entity\Ressources $lignesComposees)
+    public function removeLignesArticles(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticles)
     {
-        $this->lignesComposees->removeElement($lignesComposees);
+        $this->lignesArticles->removeElement($lignesArticles);
     }
 
     /**
-     * Get lignesComposees
+     * Get lignesArticles
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getLignesComposees()
+    public function getLignesArticles()
     {
-        return $this->lignesComposees;
-    }
-
-    /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     *
-     * @return integer
-     */
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
-     * @return integer
-     */
-    public function getQuantite()
-    {
-        return $this->quantite;
+        return $this->lignesArticles;
     }
 }

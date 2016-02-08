@@ -31,11 +31,13 @@ class RessourcesType extends AbstractType
                 ))
             ->add('prix', 'integer')
             ->add('estcompose','checkbox', array('required' => false))
-            ->add('lignesComposees','collection',array(
-                'type' => new RessourcesFormType(),
+            ->add('lignesArticles','collection',array(
+                'type' => new LignesArticlesType(), //RessourcesFormType
                 'allow_delete' => true,
-                'allow_add'    => true
-                ))
+                'allow_add'    => true,
+                'by_reference' => true
+                )
+            )
         ;
     }
     
