@@ -60,9 +60,16 @@ class Ressources
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="id_article", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="idArticle", cascade={"persist"})
      */
     private $lignesArticles;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="ComposesRessources", mappedBy="idComposant", cascade={"persist"})
+     */
+    private $lignesComposants;
 
     /**
      * Constructor
@@ -70,6 +77,7 @@ class Ressources
     public function __construct()
     {
         $this->lignesArticles = new ArrayCollection();
+        $this->lignesComposants = new ArrayCollection();
     }
 
 
@@ -210,11 +218,11 @@ class Ressources
      *
      * @return Ressources
      */
-    public function addLignesArticles(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticles)
+    public function addLignesArticle(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticle)
     {
-        $this->lignesArticles[] = $lignesArticles;
+        $this->lignesArticles[] = $lignesArticle;
 
-        $lignesArticles->setIdArticle($this);
+        $lignesArticle->setIdArticle($this);
 
         return $this;
     }
@@ -224,11 +232,11 @@ class Ressources
      *
      * @param \DMC\CrudBundle\Entity\ComposesRessources $lignesArticles
      */
-    public function removeLignesArticles(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticles)
+    public function removeLignesArticle(\DMC\CrudBundle\Entity\ComposesRessources $lignesArticle)
     {
-        $this->lignesArticles->removeElement($lignesArticles);
+        $this->lignesArticles->removeElement($lignesArticle);
     }
-
+    
     /**
      * Get lignesArticles
      *
@@ -237,5 +245,41 @@ class Ressources
     public function getLignesArticles()
     {
         return $this->lignesArticles;
+    }
+    
+    /**
+     * Add lignesComposants
+     *
+     * @param \DMC\CrudBundle\Entity\ComposesRessources $lignesComposants
+     *
+     * @return Ressources
+     */
+    public function addlignesComposant(\DMC\CrudBundle\Entity\ComposesRessources $lignesComposant)
+    {
+        $this->lignesComposants[] = $lignesComposant;
+
+        $lignesComposant->setIdComposant($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove lignesComposants
+     *
+     * @param \DMC\CrudBundle\Entity\ComposesRessources $lignesComposants
+     */
+    public function removelignesComposant(\DMC\CrudBundle\Entity\ComposesRessources $lignesComposant)
+    {
+        $this->lignesComposants->removeElement($lignesComposant);
+    }
+    
+     /**
+     * Get lignesComposants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getlignesComposants()
+    {
+        return $this->lignesComposants;
     }
 }

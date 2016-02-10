@@ -25,15 +25,15 @@ class ComposesRessources
      * @var \Ressources
      *
      * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="lignesArticles")
-     * @ORM\Column(name="id_article", type="integer", nullable=false)
+     * @ORM\JoinColumn(name="id_article", referencedColumnName="id", nullable=false)
      */
     private $idArticle;
 
     /**
      * @var \Ressources
      *
-     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="id")
-     * @ORM\Column(name="id_composant", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Ressources", inversedBy="lignesComposants", cascade={"persist"})
+     * @ORM\JoinColumn(name="id_composant", referencedColumnName="id", nullable=false)
      */
     private $idComposant;
 

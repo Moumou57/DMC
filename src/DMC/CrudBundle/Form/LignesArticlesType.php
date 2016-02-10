@@ -15,19 +15,11 @@ class LignesArticlesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idArticle','integer')
-            /*
-            ->add('idComposant','entity',array(
+            //->add('idArticle','integer')        
+            ->add('idComposant', 'entity', array(
                 'class' => 'DMCCrudBundle:Ressources',
                 'choice_label' => 'designation'
-                ))
-            */
-            
-            ->add('idComposant', //'collection',array(
-                    //'type' => 
-                    new RessourcesFormType()//,
-                    //'allow_delete' => true
-                )//)
+            ))
             ->add('quantite', 'integer')
         ;
     }

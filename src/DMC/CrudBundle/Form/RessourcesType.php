@@ -35,7 +35,7 @@ class RessourcesType extends AbstractType
                 'type' => new LignesArticlesType(), //RessourcesFormType
                 'allow_delete' => true,
                 'allow_add'    => true,
-                'by_reference' => true
+                'by_reference' => false
                 )
             )
         ;
