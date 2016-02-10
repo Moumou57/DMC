@@ -122,7 +122,7 @@ class LignesDevis
     /**
      * @var \EnteteDevis
      *
-     * @ORM\ManyToOne(targetEntity="EnteteDevis")
+     * @ORM\ManyToOne(targetEntity="EnteteDevis",inversedBy="lignes")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_entete", referencedColumnName="id")
      * })

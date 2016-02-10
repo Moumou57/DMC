@@ -146,7 +146,7 @@ class EnteteDevis
      * 
      * @var \Doctrine\Common\Collections\ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="LignesDevis", mappedBy="EnteteDevis", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="LignesDevis", mappedBy="idEntete", cascade={"persist"})
      */
     protected $lignes;
 
