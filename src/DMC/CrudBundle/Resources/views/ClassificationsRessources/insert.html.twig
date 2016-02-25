@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'DMCCrudBundle:navBar:navBarClassificationRess.html.twig' %}
 
 {% block Header %}
 	<h1>Classifications Ressources</h1>
@@ -26,10 +26,10 @@
 
 	    {# Idem pour un autre champ. #}
 	    <div class="form-group">
-	      {{ form_label(form.idFamille, "Famille : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-	      {{ form_errors(form.idFamille) }}
+	      {{ form_label(form.idfamille, "Famille : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+	      {{ form_errors(form.idfamille) }}
 	      <div class="col-sm-4">
-	        {{ form_widget(form.idFamille, {'attr': {'class': 'form-control'}}) }}
+	        {{ form_widget(form.idfamille, {'attr': {'class': 'form-control'}}) }}
 	      </div>
 	    </div>
 

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use DMC\CrudBundle\Entity\ClassificationsRessources;
 
+use DMC\CrudBundle\Form\ClassificationsRessourcesType;
 
 class ClassificationsRessourcesController extends Controller
 {
@@ -37,22 +38,7 @@ class ClassificationsRessourcesController extends Controller
          // On crée un objet ressource
         $classificationRessource = new ClassificationsRessources();
 
-        // On crée le FormBuilder grâce au service form factory
-        $formBuilder = $this->get('form.factory')->createBuilder('form', $classificationRessource);
-
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('designation', 'text')
-            ->add('idFamille', 'text', array('required' => false))
-            ->add('save', 'submit')
-            ->getForm();
-
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
-
-        // On fait le lien Requête <-> Formulaire
-        // À partir de maintenant, la variable $ressource contient les valeurs entrées dans le formulaire par le visiteur
-        $form->handleRequest($request);
+        $form = $this->createForm(new ClassificationsRessourcesType(), $classificationRessource);
 
         // On vérifie que les valeurs entrées sont correctes
         // (Nous verrons la validation des objets en détail dans le prochain chapitre)
@@ -75,7 +61,7 @@ class ClassificationsRessourcesController extends Controller
           'form' => $form->createView(),
         ));
     }
-
+    
     public function editAction($id, Request $request)
     {
         // Ici, on récupérera le ressource correspondant à $id

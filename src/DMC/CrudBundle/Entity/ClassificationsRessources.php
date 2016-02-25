@@ -4,6 +4,8 @@ namespace DMC\CrudBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
+
 /**
  * ClassificationsRessources
  *
@@ -31,13 +33,20 @@ class ClassificationsRessources
     /**
      * @var \ClassificationsRessources
      *
-     * @ORM\ManyToOne(targetEntity="ClassificationsRessources")
+     * @ORM\ManyToOne(targetEntity="ClassificationsRessources",inversedBy="familylist")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idFamille", referencedColumnName="id")
      * })
      */
     private $idfamille;
 
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ClassificationsRessources", mappedBy="idfamille", cascade={"persist"})
+     */
+    private $familylist;
 
 
     /**
@@ -96,5 +105,27 @@ class ClassificationsRessources
     public function getIdfamille()
     {
         return $this->idfamille;
+    }
+
+    //------------------------------------------------------------------------------------------
+
+    /**
+     * Add a familylist
+     *
+     * @return void
+     */
+    public function addFamilyList(LignesDevis $familylist)
+    {
+        $this->lignes->add($familylist);
+    }
+
+    /**
+     * Remove a familylist
+     *
+     * @return void
+     */
+    public function removeFamilyList(LignesDevis $familylist)
+    {
+        $this->lignes->removeElement($familylist);
     }
 }
