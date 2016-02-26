@@ -157,6 +157,10 @@ a {
     margin-top: 3%;
 }
 
+.table tr {
+    cursor: pointer;
+}
+
 th 
 {
 	text-align: center;

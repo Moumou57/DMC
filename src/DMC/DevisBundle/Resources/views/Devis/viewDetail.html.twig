@@ -18,14 +18,30 @@
 		<table class="table">
 			<thead>
 				<tr>
+                    <th>Type</th>
+                    <th>Position Maître</th>
+                    <th>Position</th>
+                    <th>Article</th>
                     <th>Libellé</th>
+                    <th>Unité</th>
+                    <th>Quantité</th>
+                    <th>Prix Unitaire HT</th>
+                    <th>Total HT</th>
 				</tr>
 			</thead>
 			<tbody>
 			  	{% for ligne in detailDevis %}
 			    <tr class="ligne">
                     <input type="hidden" id="ligne" value={{ ligne.idLigne }} />
+                    <td>{{ ligne.type }}</td>
+                    <td>{{ ligne.positionmaitre }}</td>
+                    <td>{{ ligne.position }}</td>
+                    <td>{{ ligne.article }}</td>
                     <td>{{ ligne.libelle }}</td>
+                    <td>{{ ligne.unite }}</td>
+                    <td>{{ ligne.quantite }}</td>
+                    <td>{{ ligne.puHt }}</td>
+                    <td>{{ ligne.totalHt }}</td>
 				</tr>
 		 		{% endfor %}
 		 	</tbody>
